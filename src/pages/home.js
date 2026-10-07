@@ -9,22 +9,17 @@ import { initTilt } from '../core/interactions.js';
 import { initQuickSearch } from '../components/quick-search.js';
 import { initRoads } from '../components/road.js';
 import { dragScroll } from '../components/drag-scroll.js';
-import { runLoader } from '../components/loader.js';
 import { createOrbit } from '../components/orbit.js';
 
-const showLoader = !document.documentElement.classList.contains('no-preload') && !RM;
-boot({ holdReady: showLoader });
+boot();
 
 const hero = $('[data-hero]');
 const heroImg = $('[data-hero-media] img');
 const heroPicture = $('[data-hero-media] picture');
 
 /* =====================================================================
-   1. Loader → hero entrance
+   1. Hero entrance
    ===================================================================== */
-const photoReady = (heroImg.decode ? heroImg.decode() : Promise.resolve()).catch(() => {});
-const ready = Promise.all([photoReady, document.fonts?.ready]);
-
 // Hero starts "closed": photo zoomed inside a small rounded window, copy hidden.
 if (!RM) {
   gsap.set(heroPicture, { clipPath: 'inset(22% 18% 22% 30% round 40px)', scale: 1.25 });
@@ -32,7 +27,6 @@ if (!RM) {
 }
 
 function heroIntro() {
-  try { sessionStorage.setItem('drv-seen', '1'); } catch {}
   if (RM) return;
   const tl = gsap.timeline();
   tl.to(heroPicture, { clipPath: 'inset(0% 0% 0% 0% round 0px)', scale: 1, duration: 1.8, ease: 'expo.inOut', clearProps: 'clipPath' }, 0)
@@ -48,14 +42,7 @@ function heroIntro() {
     .add(() => hero.classList.add('is-ready'), 1.2);
 }
 
-if (showLoader) {
-  runLoader({ ready }).then(() => {
-    markReady();
-    heroIntro();
-  });
-} else {
-  pageReady.then(heroIntro);
-}
+pageReady.then(heroIntro);
 
 // Pointer parallax on the hero photo + scroll depth (photo drifts, copy lifts away).
 if (!RM) {

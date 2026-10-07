@@ -18,7 +18,7 @@ function setName(text) {
   return [...el.children];
 }
 
-export function initTransitions({ holdReady = false } = {}) {
+export function initTransitions() {
   const root = document.documentElement;
   const pt = $('.pt');
   const panelA = $('.pt__panel--a');
@@ -37,11 +37,11 @@ export function initTransitions({ holdReady = false } = {}) {
     tl.to(chars, { yPercent: -120, duration: 0.6, ease: 'expo.in', stagger: 0.025 })
       .to(panelB, { yPercent: -101, duration: 1, ease: 'expo.inOut' }, 0.35)
       .to(panelA, { yPercent: -101, duration: 1, ease: 'expo.inOut' }, 0.45)
-      .add(() => !holdReady && markReady(), 0.85);
+      .add(markReady, 0.85);
   } else {
     gsap.set([panelA, panelB], { yPercent: 101 });
     root.classList.remove('is-entering');
-    if (!holdReady) markReady();
+    markReady();
   }
 
   window.addEventListener('pageshow', (e) => {

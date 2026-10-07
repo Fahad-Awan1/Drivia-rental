@@ -12,8 +12,7 @@
     d.classList.remove('no-js');
     try {
       if (sessionStorage.getItem('drv-t')) { d.classList.add('is-entering'); sessionStorage.removeItem('drv-t'); }
-      if (sessionStorage.getItem('drv-seen') || d.classList.contains('is-entering')) d.classList.add('no-preload');
     } catch (e) {}
   })(document.documentElement);
 </script>
-<style>body{visibility:hidden}html.is-entering{background:#0e0e0f}.loader{position:fixed;inset:0;z-index:200;background:#f1ede6}.no-preload .loader{display:none}</style>
+<style>body{visibility:hidden}html.is-entering{background:#0e0e0f}</style>

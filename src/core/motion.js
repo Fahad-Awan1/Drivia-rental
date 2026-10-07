@@ -20,7 +20,7 @@ if (import.meta.env.DEV) Object.assign(window, { __gsap: gsap, __ST: ScrollTrigg
 export const RM = reducedMotion();
 const EASE = 'expo.out';
 
-/* ---------- Page readiness: entrance animations wait for the page transition / loader ---------- */
+/* ---------- Page readiness: entrance animations wait for the page transition ---------- */
 let resolveReady;
 export const pageReady = new Promise((r) => (resolveReady = r));
 export const markReady = () => resolveReady();
@@ -103,7 +103,7 @@ export function revealEl(el, delay = 0) {
   });
 }
 
-// Play everything inside a container now (used for heroes once the loader/transition finishes).
+// Play everything inside a container now (used for heroes once the page transition finishes).
 export function revealGroup(root, { delay = 0 } = {}) {
   const tl = gsap.timeline({ delay });
   $$('[data-split]', root).forEach((el, i) => tl.add(revealSplit(el), i * 0.12));

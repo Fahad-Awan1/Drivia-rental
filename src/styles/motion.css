@@ -1,5 +1,5 @@
 /* =====================================================================
-   Motion layer: split text, rolling labels, page transition, loader,
+   Motion layer: split text, rolling labels, page transition,
    orbit carousel. Initial hidden states are gated on JS (html:not(.no-js))
    so the page stays readable if scripts fail.
    ===================================================================== */
@@ -135,69 +135,6 @@ html.is-entering .pt {
   letter-spacing: 0.4em;
   text-transform: uppercase;
   color: var(--champagne);
-}
-
-/* ---------- Loader (home, first visit): counter + popping car shapes + sweep ---------- */
-.loader {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  background: #f1ede6;
-  overflow: hidden;
-  display: grid;
-  place-items: center;
-}
-.no-preload .loader {
-  display: none;
-}
-.loader__shapes {
-  position: absolute;
-  inset: -6%;
-}
-.loader__shape {
-  position: absolute;
-  width: var(--s);
-  height: var(--s);
-  left: var(--x);
-  top: var(--y);
-  transform: scale(0);
-}
-.loader__shape svg {
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-.loader__count {
-  position: relative;
-  z-index: 2;
-  font-family: var(--font-display);
-  font-size: clamp(4rem, 3rem + 6vw, 9rem);
-  font-weight: 600;
-  letter-spacing: -0.06em;
-  color: var(--ink);
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-}
-.loader__count small {
-  font-size: 0.4em;
-  color: var(--champagne-2);
-  margin-left: 4px;
-}
-.loader__sweep {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  background: var(--dark);
-  visibility: hidden;
-}
-.loader__sweep::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 14px;
-  background: var(--champagne);
 }
 
 /* ---------- Orbit carousel (fleet showcase) ---------- */
@@ -419,11 +356,6 @@ html.is-entering .pt {
   will-change: transform;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .loader {
-    display: none;
-  }
-}
 
 /* Infinite animations pause while their region is off-screen (see gateAnimations in motion.js).
    Otherwise every frame the page renders would recalculate them, even when nobody can see them. */

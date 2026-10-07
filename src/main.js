@@ -48,15 +48,14 @@ function driveOnDemand(l) {
   wake();
 }
 
-// holdReady: the page (home) signals readiness itself once its loader finishes.
-export function boot({ holdReady = false } = {}) {
+export function boot() {
   if (!reducedMotion()) {
     lenis = new Lenis({ lerp: 0.1, anchors: { offset: -90 } });
     window.__lenis = lenis;
     driveOnDemand(lenis);
   }
   initMotion(lenis);
-  initTransitions({ holdReady });
+  initTransitions();
   initHeader(lenis);
   initMenu(lenis);
   initCursor();
