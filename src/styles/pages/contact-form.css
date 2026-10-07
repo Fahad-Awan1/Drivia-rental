@@ -1,0 +1,468 @@
+/* ================= Contact form: card, header, progress ================= */
+.contact__form-wrap {
+  position: relative;
+  overflow: visible;
+  padding: clamp(22px, 3vw, 40px);
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(205, 187, 163, 0.18), transparent 45%),
+    var(--card);
+}
+.cf-progress {
+  position: absolute;
+  left: 26px;
+  right: 26px;
+  top: 0;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+.cf-progress i {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--champagne-2), var(--champagne));
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.7s var(--ease);
+}
+.cf-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 14px 24px;
+  margin-bottom: 10px;
+}
+.cf-head__sub {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+}
+.cf-head__sub b {
+  color: var(--ink);
+}
+.cf-team {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.cf-team .avatars img {
+  width: 36px;
+  height: 36px;
+}
+
+/* ================= Floating-label field with a leading icon ================= */
+.ff {
+  position: relative;
+  gap: 6px;
+}
+.ff__input,
+.dd__btn {
+  width: 100%;
+  min-height: 62px;
+  padding: 26px 46px 10px 52px;
+  border-radius: 16px;
+  border: 1.5px solid transparent;
+  background: var(--surface-2);
+  font-size: 1rem;
+  color: var(--ink);
+  transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.ff__input:hover,
+.dd__btn:hover {
+  background: #eae9e5;
+}
+.ff__input:focus,
+.dd__btn:focus-visible,
+.ff.is-focused .dd__btn {
+  outline: none;
+  background: #fff;
+  border-color: var(--ink);
+  box-shadow: 0 0 0 5px rgba(205, 187, 163, 0.35);
+}
+.ff--area .ff__input {
+  min-height: 150px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  resize: none;
+  line-height: 1.55;
+  overflow: hidden;
+}
+.ff__icon {
+  position: absolute;
+  left: 18px;
+  top: 21px;
+  width: 20px;
+  height: 20px;
+  color: var(--muted);
+  pointer-events: none;
+  z-index: 1;
+  transition: color 0.3s, transform 0.4s var(--ease);
+}
+.ff__icon svg {
+  width: 20px;
+  height: 20px;
+}
+.ff:focus-within .ff__icon,
+.ff.is-focused .ff__icon {
+  color: var(--ink);
+  transform: scale(1.1);
+}
+.ff .ff__label {
+  position: absolute;
+  left: 52px;
+  top: 20px;
+  right: 46px;
+  z-index: 2;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--muted);
+  pointer-events: none;
+  transform-origin: left top;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: transform 0.35s var(--ease), color 0.3s;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.ff__label small {
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+/* float up when focused or filled */
+.ff .ff__input:focus ~ .ff__label,
+.ff .ff__input:not(:placeholder-shown) ~ .ff__label,
+.ff.is-focused .ff__label,
+.ff.is-filled .ff__label {
+  transform: translateY(-12px) scale(0.76);
+  color: var(--champagne-2);
+  font-weight: 600;
+}
+.ff__ok {
+  position: absolute;
+  right: 16px;
+  top: 19px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--success);
+  color: #fff;
+  transform: scale(0);
+  transition: transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+.ff__ok svg {
+  width: 13px;
+  height: 13px;
+}
+.ff__input:not(:placeholder-shown):valid ~ .ff__ok {
+  transform: scale(1);
+}
+.ff__count {
+  position: absolute;
+  right: 16px;
+  bottom: 30px;
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+}
+.ff__count.is-near {
+  color: var(--danger);
+}
+.ff .field__error {
+  padding-left: 6px;
+}
+.field.has-error .ff__input,
+.field.has-error .dd__btn {
+  border-color: var(--danger);
+  background: #fff6f5;
+  animation: shake 0.45s;
+}
+.field.has-error .ff__icon {
+  color: var(--danger);
+}
+@keyframes shake {
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+/* ================= Custom dropdown ================= */
+.dd__native {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.dd {
+  position: relative;
+}
+.dd__btn {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+}
+.dd__value {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dd__chev {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  width: 28px;
+  height: 28px;
+  margin-top: -14px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--line);
+  transition: transform 0.5s var(--ease), background 0.3s, border-color 0.3s;
+}
+.dd__chev::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: 7px;
+  height: 7px;
+  border-right: 1.6px solid var(--ink);
+  border-bottom: 1.6px solid var(--ink);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.dd.is-open .dd__chev {
+  transform: rotate(180deg);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.dd.is-open .dd__chev::before {
+  border-color: #fff;
+}
+.dd.is-picked .dd__btn {
+  animation: picked 0.6s var(--ease);
+}
+@keyframes picked {
+  40% { box-shadow: 0 0 0 9px rgba(205, 187, 163, 0.35); }
+}
+.dd__list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 10px);
+  z-index: 40;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  max-height: 440px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: 20px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.3), 0 8px 20px -10px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.97);
+  transform-origin: top center;
+  transition: opacity 0.25s, transform 0.45s var(--ease), visibility 0s 0.45s;
+  outline: none;
+}
+.dd.is-open .dd__list {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.25s, transform 0.45s var(--ease);
+}
+.dd__opt {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.dd.is-open .dd__opt {
+  animation: opt-in 0.45s var(--ease) both;
+  animation-delay: calc(var(--i) * 0.035s);
+}
+@keyframes opt-in {
+  from { opacity: 0; transform: translateY(-6px); }
+}
+.dd__opt.is-active {
+  background: var(--surface-2);
+}
+.dd__opt-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: var(--surface-2);
+  color: var(--ink);
+  transition: background 0.25s, color 0.25s, transform 0.4s var(--ease);
+}
+.dd__opt-icon svg {
+  width: 17px;
+  height: 17px;
+}
+.dd__opt.is-active .dd__opt-icon {
+  background: var(--ink);
+  color: var(--champagne);
+  transform: rotate(-6deg);
+}
+.dd__opt-text {
+  display: grid;
+  line-height: 1.3;
+  min-width: 0;
+}
+.dd__opt-text b {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.dd__opt-text small {
+  color: var(--muted);
+  font-size: var(--fs-xs);
+}
+.dd__tick {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--champagne);
+  color: var(--ink);
+  transform: scale(0);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.dd__tick svg {
+  width: 12px;
+  height: 12px;
+}
+.dd__opt[aria-selected="true"] .dd__tick {
+  transform: scale(1);
+}
+.dd__opt[aria-selected="true"] b {
+  color: var(--champagne-2);
+}
+
+/* ================= Consent checkbox + submit ================= */
+.cf-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 6px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+.cbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+  user-select: none;
+}
+.cbox input {
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+}
+.cbox__box {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 8px;
+  border: 1.5px solid var(--line-strong);
+  background: #fff;
+  display: grid;
+  place-items: center;
+  transition: background 0.25s, border-color 0.25s, transform 0.3s var(--ease);
+}
+.cbox__box svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  transition: stroke-dashoffset 0.35s var(--ease) 0.05s;
+}
+.cbox:hover .cbox__box {
+  border-color: var(--ink);
+}
+.cbox input:checked + .cbox__box {
+  background: var(--ink);
+  border-color: var(--ink);
+  transform: scale(1.06);
+}
+.cbox input:checked + .cbox__box svg {
+  stroke-dashoffset: 0;
+}
+.cbox input:focus-visible + .cbox__box {
+  outline: 2px solid var(--champagne-2);
+  outline-offset: 3px;
+}
+.cbox input[aria-invalid="true"] + .cbox__box {
+  border-color: var(--danger);
+  animation: shake 0.45s;
+}
+.cf-submit {
+  min-width: 200px;
+  justify-content: space-between;
+}
+.cf-submit .btn__icon {
+  position: relative;
+}
+.cf-submit.is-loading {
+  pointer-events: none;
+}
+.cf-submit.is-loading .btn__icon svg {
+  opacity: 0;
+}
+.cf-submit.is-loading .btn__icon::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(14, 14, 15, 0.2);
+  border-top-color: var(--ink);
+  animation: spin 0.7s linear infinite;
+}
+@media (max-width: 560px) {
+  .cf-foot {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cf-submit {
+    width: 100%;
+  }
+  .cf-team span {
+    display: none;
+  }
+}

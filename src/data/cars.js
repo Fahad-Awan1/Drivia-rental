@@ -1,0 +1,26 @@
+// Single source of truth for the fleet. Prices are USD per day.
+export const CATEGORIES = ['Economy', 'Sedan', 'SUV', 'Electric', 'Luxury', 'Sports'];
+
+export const cars = [
+  { id: 'ferrari-458', name: 'Ferrari 458 Italia', brand: 'Ferrari', category: 'Sports', price: 890, seats: 2, doors: 2, transmission: 'Automatic', fuel: 'Petrol', hp: 562, accel: 3.4, top: 325, tagline: 'Our signature supercar — explore it in 3D.', model3d: true, featured: true, rating: 4.9, trips: 214 },
+  { id: 'bmw-m5', name: 'BMW M5 Competition', brand: 'BMW', category: 'Luxury', price: 289, seats: 5, doors: 4, transmission: 'Automatic', fuel: 'Petrol', hp: 617, accel: 3.3, top: 305, tagline: 'Executive comfort with a supercar heartbeat.', featured: true, rating: 4.9, trips: 512 },
+  { id: 'porsche-panamera', name: 'Porsche Panamera 4S', brand: 'Porsche', category: 'Luxury', price: 329, seats: 4, doors: 4, transmission: 'Automatic', fuel: 'Hybrid', hp: 552, accel: 3.7, top: 298, tagline: 'Grand touring, perfected.', featured: true, rating: 4.8, trips: 388 },
+  { id: 'mercedes-amg-gt', name: 'Mercedes-AMG GT', brand: 'Mercedes-Benz', category: 'Sports', price: 459, seats: 2, doors: 2, transmission: 'Automatic', fuel: 'Petrol', hp: 523, accel: 3.8, top: 310, tagline: 'Long bonnet, short tail, endless drama.', featured: true, rating: 4.9, trips: 176 },
+  { id: 'mclaren-720s', name: 'McLaren 720S', brand: 'McLaren', category: 'Sports', price: 1150, seats: 2, doors: 2, transmission: 'Automatic', fuel: 'Petrol', hp: 710, accel: 2.9, top: 341, tagline: 'Dihedral doors. Telepathic handling.', rating: 5.0, trips: 92 },
+  { id: 'lamborghini-huracan', name: 'Lamborghini Huracán', brand: 'Lamborghini', category: 'Sports', price: 990, seats: 2, doors: 2, transmission: 'Automatic', fuel: 'Petrol', hp: 631, accel: 2.9, top: 325, tagline: 'A naturally aspirated V10 symphony.', featured: true, rating: 4.9, trips: 143 },
+  { id: 'audi-rs6', name: 'Audi RS 6 Avant', brand: 'Audi', category: 'Luxury', price: 269, seats: 5, doors: 5, transmission: 'Automatic', fuel: 'Petrol', hp: 591, accel: 3.6, top: 280, tagline: 'The family estate that embarrasses sports cars.', rating: 4.8, trips: 301 },
+  { id: 'bmw-m4', name: 'BMW M4 Coupé', brand: 'BMW', category: 'Sports', price: 239, seats: 4, doors: 2, transmission: 'Automatic', fuel: 'Petrol', hp: 503, accel: 3.9, top: 290, tagline: 'Precision on every apex.', rating: 4.7, trips: 266 },
+  { id: 'tesla-model-3', name: 'Tesla Model 3', brand: 'Tesla', category: 'Electric', price: 99, seats: 5, doors: 4, transmission: 'Automatic', fuel: 'Electric', hp: 283, accel: 5.8, top: 225, range: 513, tagline: 'Silent, smart, and surprisingly quick.', featured: true, rating: 4.8, trips: 954 },
+  { id: 'tesla-roadster', name: 'Tesla Roadster', brand: 'Tesla', category: 'Electric', price: 690, seats: 4, doors: 2, transmission: 'Automatic', fuel: 'Electric', hp: 1000, accel: 2.1, top: 400, range: 990, tagline: 'The future, available this weekend.', rating: 5.0, trips: 38 },
+  { id: 'ford-expedition', name: 'Ford Expedition', brand: 'Ford', category: 'SUV', price: 139, seats: 8, doors: 5, transmission: 'Automatic', fuel: 'Petrol', hp: 400, accel: 6.3, top: 180, tagline: 'Room for eight and all their luggage.', featured: true, rating: 4.7, trips: 621 },
+  { id: 'nissan-juke', name: 'Nissan Juke', brand: 'Nissan', category: 'SUV', price: 59, seats: 5, doors: 5, transmission: 'Automatic', fuel: 'Petrol', hp: 114, accel: 10.4, top: 180, tagline: 'Compact SUV built for city escapes.', rating: 4.6, trips: 840 },
+  { id: 'toyota-camry', name: 'Toyota Camry Hybrid', brand: 'Toyota', category: 'Sedan', price: 69, seats: 5, doors: 4, transmission: 'Automatic', fuel: 'Hybrid', hp: 215, accel: 7.8, top: 180, tagline: 'Effortless, efficient, endlessly reliable.', rating: 4.7, trips: 1204 },
+  { id: 'hyundai-accent', name: 'Hyundai Accent', brand: 'Hyundai', category: 'Economy', price: 45, seats: 5, doors: 4, transmission: 'Automatic', fuel: 'Petrol', hp: 120, accel: 10.2, top: 190, tagline: 'Smart value for everyday trips.', rating: 4.6, trips: 1377 },
+  { id: 'vw-polo', name: 'Volkswagen Polo', brand: 'Volkswagen', category: 'Economy', price: 39, seats: 5, doors: 5, transmission: 'Manual', fuel: 'Petrol', hp: 95, accel: 10.8, top: 187, tagline: 'Nimble in town, frugal on the highway.', rating: 4.5, trips: 1511 },
+  { id: 'ford-mustang', name: 'Ford Mustang GT', brand: 'Ford', category: 'Sports', price: 179, seats: 4, doors: 2, transmission: 'Manual', fuel: 'Petrol', hp: 450, accel: 4.3, top: 250, tagline: 'An American V8 icon.', rating: 4.8, trips: 455 },
+  { id: 'dodge-challenger', name: 'Dodge Challenger SRT', brand: 'Dodge', category: 'Sports', price: 199, seats: 5, doors: 2, transmission: 'Automatic', fuel: 'Petrol', hp: 717, accel: 3.6, top: 315, tagline: 'Muscle with modern manners.', rating: 4.7, trips: 233 },
+  { id: 'chevrolet-camaro', name: 'Chevrolet Camaro SS', brand: 'Chevrolet', category: 'Sports', price: 159, seats: 4, doors: 2, transmission: 'Automatic', fuel: 'Petrol', hp: 455, accel: 4.0, top: 265, tagline: 'Sunset drives were made for this.', rating: 4.6, trips: 318 },
+].map((c) => ({ ...c, img: c.id }));
+
+export const getCar = (id) => cars.find((c) => c.id === id);
+export const money = (n) => '$' + Math.round(n).toLocaleString('en-US');

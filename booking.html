@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <!-- @include head -->
+  <title>Book a Car | Drivia</title>
+  <meta name="description" content="Book your Drivia rental in four quick steps: choose dates and city, pick a car, add extras and confirm. Instant booking reference.">
+  <meta name="robots" content="noindex">
+</head>
+<body data-page="booking">
+  <!-- @include icons -->
+  <div class="site">
+    <!-- @include header -->
+    <main id="main">
+      <section class="container book-head">
+        <nav class="breadcrumb breadcrumb--dark" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Booking</span></nav>
+        <h1 data-split>Book your <span class="accent-dark">drive.</span></h1>
+        <ol class="stepper" role="list" data-stepper>
+          <li><button type="button" data-goto="1"><span>1</span>Trip</button></li>
+          <li><button type="button" data-goto="2"><span>2</span>Car</button></li>
+          <li><button type="button" data-goto="3"><span>3</span>Extras</button></li>
+          <li><button type="button" data-goto="4"><span>4</span>Details</button></li>
+        </ol>
+      </section>
+
+      <section class="container booking" data-booking-wrap>
+        <form class="booking__main" novalidate data-booking>
+          <!-- Step 1 -->
+          <fieldset class="bstep" data-step="1">
+            <legend class="bstep__title">Where and when?</legend>
+            <div class="bgrid">
+              <div class="field"><label for="b-loc">Pick-up branch</label><select class="select" id="b-loc" name="loc" data-loc-select required></select></div>
+              <div class="field"><label for="b-ret">Return branch</label><select class="select" id="b-ret" name="ret" required></select><span class="field__hint" data-oneway-hint></span></div>
+              <div class="field"><label for="b-from">Pick-up date</label><input class="input" type="date" id="b-from" name="from" required></div>
+              <div class="field"><label for="b-ftime">Pick-up time</label><select class="select" id="b-ftime" name="ftime" data-times></select></div>
+              <div class="field"><label for="b-to">Return date</label><input class="input" type="date" id="b-to" name="to" required><span class="field__error" aria-live="polite"></span></div>
+              <div class="field"><label for="b-ttime">Return time</label><select class="select" id="b-ttime" name="ttime" data-times></select></div>
+            </div>
+            <div class="field">
+              <span class="label">Main driver’s age</span>
+              <div class="seg" role="radiogroup" aria-label="Driver age">
+                <label><input type="radio" name="age" value="21"><span>21–22</span></label>
+                <label><input type="radio" name="age" value="23"><span>23–24</span></label>
+                <label><input type="radio" name="age" value="25" checked><span>25+</span></label>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Step 2 -->
+          <fieldset class="bstep" data-step="2" hidden>
+            <legend class="bstep__title">Choose your car</legend>
+            <div class="chips" role="group" aria-label="Filter by category" data-bcats></div>
+            <div class="bcars" role="radiogroup" aria-label="Cars" data-bcars></div>
+            <span class="field__error" data-car-error aria-live="polite"></span>
+          </fieldset>
+
+          <!-- Step 3 -->
+          <fieldset class="bstep" data-step="3" hidden>
+            <legend class="bstep__title">Add extras</legend>
+            <p class="bstep__sub">Optional. You can also add these later from your confirmation email.</p>
+            <div class="bextras" data-bextras></div>
+          </fieldset>
+
+          <!-- Step 4 -->
+          <fieldset class="bstep" data-step="4" hidden>
+            <legend class="bstep__title">Driver details</legend>
+            <div class="bgrid">
+              <div class="field"><label for="b-first">First name</label><input class="input" id="b-first" name="first" autocomplete="given-name" required minlength="2"><span class="field__error" aria-live="polite"></span></div>
+              <div class="field"><label for="b-last">Last name</label><input class="input" id="b-last" name="last" autocomplete="family-name" required minlength="2"><span class="field__error" aria-live="polite"></span></div>
+              <div class="field"><label for="b-email">Email</label><input class="input" id="b-email" name="email" type="email" autocomplete="email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}"><span class="field__error" aria-live="polite"></span></div>
+              <div class="field"><label for="b-phone">Phone</label><input class="input" id="b-phone" name="phone" type="tel" autocomplete="tel" required pattern="[\d\s\+\-\(\)]{7,}"><span class="field__error" aria-live="polite"></span></div>
+              <div class="field"><label for="b-flight">Flight number (optional)</label><input class="input" id="b-flight" name="flight" placeholder="e.g. EK 029"></div>
+              <div class="field"><label for="b-lic">Licence country</label><input class="input" id="b-lic" name="licence" autocomplete="country-name" required><span class="field__error" aria-live="polite"></span></div>
+            </div>
+            <div class="field"><label for="b-notes">Notes for the concierge (optional)</label><textarea class="textarea" id="b-notes" name="notes" rows="3" placeholder="Hotel name, child seat type, special occasion…"></textarea></div>
+            <label class="check"><input type="checkbox" name="terms" required> I have a valid licence and accept the rental terms.</label>
+            <span class="field__error" data-terms-error aria-live="polite"></span>
+            <p class="bstep__note"><svg><use href="#i-shield"/></svg>No payment is taken now. You’ll pay at pickup; the deposit is a temporary hold.</p>
+          </fieldset>
+
+          <div class="bnav">
+            <button class="btn btn--outline btn--plain btn--sm" type="button" data-back>Back</button>
+            <button class="btn" type="submit" data-next>Continue <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></button>
+          </div>
+        </form>
+
+        <aside class="booking__summary" aria-label="Booking summary">
+          <div class="summary card" data-summary></div>
+        </aside>
+      </section>
+
+      <section class="container booking-done" data-done hidden tabindex="-1" aria-labelledby="done-title">
+        <div class="done on-dark">
+          <canvas data-road-canvas aria-hidden="true"></canvas>
+          <div class="done__inner">
+            <span class="success-icon"><svg><use href="#i-check"/></svg></span>
+            <h2 id="done-title">You’re all set, <span class="accent" data-done-name></span>!</h2>
+            <p class="lead">Booking reference <b data-done-ref></b>. A confirmation has been sent to <b data-done-email></b>.</p>
+            <div class="done__card" data-done-summary></div>
+            <div class="done__actions">
+              <button class="btn btn--light" type="button" data-ics>Add to calendar <span class="btn__icon"><svg><use href="#i-calendar"/></svg></span></button>
+              <button class="btn btn--ghost" type="button" data-print>Print <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></button>
+              <a class="btn btn--ghost" href="/">Back home <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- @include footer -->
+  </div>
+  <!-- @include overlays -->
+  <script type="module" src="/src/pages/booking.js"></script>
+</body>
+</html>

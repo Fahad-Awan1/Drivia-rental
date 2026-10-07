@@ -1,0 +1,438 @@
+/* =====================================================================
+   Motion layer: split text, rolling labels, page transition, loader,
+   orbit carousel. Initial hidden states are gated on JS (html:not(.no-js))
+   so the page stays readable if scripts fail.
+   ===================================================================== */
+
+/* ---------- Pre-JS hidden states (GSAP animates them in) ---------- */
+html:not(.no-js):not(.rm) [data-reveal]:not(.is-in) {
+  opacity: 0;
+}
+html:not(.no-js):not(.rm) [data-split]:not(.split) {
+  opacity: 0;
+}
+
+/* ---------- Split headings: words mask, characters rise ---------- */
+.split .w {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: clip;
+  overflow-clip-margin: 0.12em;
+  vertical-align: top;
+  padding: 0.06em 0.02em 0.1em;
+  margin: -0.06em -0.02em -0.1em;
+}
+.split .c {
+  display: inline-block;
+  transform-origin: 0% 100%;
+}
+
+/* ---------- Rolling labels (letters roll up on hover) ---------- */
+.roll {
+  position: relative;
+  display: inline-flex;
+  overflow: hidden;
+  vertical-align: top;
+  line-height: 1.2;
+}
+.roll__row {
+  display: inline-flex;
+  white-space: pre;
+}
+.roll__row--b {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.roll__ch {
+  display: inline-block;
+  transition: transform 0.55s cubic-bezier(0.76, 0, 0.24, 1);
+  transition-delay: calc(var(--i) * 0.018s);
+}
+.roll__row--b .roll__ch {
+  transform: translateY(110%);
+}
+:is(a, button):hover > .roll .roll__row--a .roll__ch,
+:is(a, button):focus-visible > .roll .roll__row--a .roll__ch,
+.roll-host:hover .roll .roll__row--a .roll__ch {
+  transform: translateY(-110%);
+}
+:is(a, button):hover > .roll .roll__row--b .roll__ch,
+:is(a, button):focus-visible > .roll .roll__row--b .roll__ch,
+.roll-host:hover .roll .roll__row--b .roll__ch {
+  transform: translateY(0);
+}
+
+/* ---------- Eyebrow line draw ---------- */
+.eyebrow.is-drawn::before {
+  animation: eyebrow 0.8s var(--ease) both;
+}
+@keyframes eyebrow {
+  from { opacity: 0; transform: translateX(-10px) rotate(-30deg); }
+}
+
+/* ---------- Page transition: line, then two panels with destination name ---------- */
+.pt {
+  position: fixed;
+  inset: 0;
+  z-index: 180;
+  pointer-events: none;
+  visibility: hidden;
+}
+.pt.is-active,
+html.is-entering .pt {
+  visibility: visible;
+  pointer-events: all;
+}
+.pt__panel {
+  position: absolute;
+  inset: 0;
+}
+.pt__panel--a {
+  background: var(--champagne);
+}
+.pt__panel--b {
+  background: var(--dark);
+  display: grid;
+  place-items: center;
+}
+.pt__line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  background: var(--champagne);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 2;
+}
+.pt__label {
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  color: var(--on-dark);
+}
+.pt__label svg {
+  width: 44px;
+  height: 44px;
+  color: #fff;
+}
+.pt__name {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 1.6rem + 5vw, 6rem);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  line-height: 1;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+.pt__name span {
+  display: inline-block;
+}
+.pt__sub {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--champagne);
+}
+
+/* ---------- Loader (home, first visit): counter + popping car shapes + sweep ---------- */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: #f1ede6;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+.no-preload .loader {
+  display: none;
+}
+.loader__shapes {
+  position: absolute;
+  inset: -6%;
+}
+.loader__shape {
+  position: absolute;
+  width: var(--s);
+  height: var(--s);
+  left: var(--x);
+  top: var(--y);
+  transform: scale(0);
+}
+.loader__shape svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.loader__count {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 3rem + 6vw, 9rem);
+  font-weight: 600;
+  letter-spacing: -0.06em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+.loader__count small {
+  font-size: 0.4em;
+  color: var(--champagne-2);
+  margin-left: 4px;
+}
+.loader__sweep {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: var(--dark);
+  visibility: hidden;
+}
+.loader__sweep::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 14px;
+  background: var(--champagne);
+}
+
+/* ---------- Orbit carousel (fleet showcase) ---------- */
+.orbit {
+  position: relative;
+  isolation: isolate;
+  height: clamp(560px, 62vw, 760px);
+  margin-top: 8px;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+  outline: none;
+}
+.orbit.is-dragging {
+  cursor: grabbing;
+}
+.orbit__badge {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: min(92vw, 860px);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+.orbit__plate {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, #2a2420 0%, #1a1714 60%);
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+  border-radius: 40px;
+}
+.orbit__text {
+  position: absolute;
+  inset: 4%;
+  width: 92%;
+  height: 92%;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 7.4px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  fill: var(--champagne);
+  opacity: 0.85;
+  animation: spin 70s linear infinite; /* compositor-driven; paused while off-screen */
+}
+.orbit__stage {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 0;
+  height: 100%;
+}
+.orbit__wheel {
+  position: absolute;
+  left: 0;
+  top: var(--orbit-top, 76px);
+  width: 0;
+  height: 0;
+  /* pivot sits R below the cards' bottom edge, so the cars fan out like the original arc */
+  transform-origin: 0 calc(var(--ch) + var(--orbit-r, 1000px));
+}
+.orbit__slot {
+  position: absolute;
+  left: calc(var(--cw) / -2);
+  top: 0;
+  width: var(--cw);
+  height: var(--ch);
+  transform-origin: 50% calc(var(--ch) + var(--orbit-r, 1000px));
+}
+.orbit__card {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: 26px;
+  overflow: hidden;
+  background: #111;
+  transform-origin: 50% 100%;
+  /* size/brightness change only when a car passes a position; CSS eases it on the compositor */
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.orbit__card picture,
+.orbit__card img {
+  width: 100%;
+  height: 100%;
+}
+.orbit__card img {
+  object-fit: cover;
+  pointer-events: none;
+}
+.orbit__card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.75));
+}
+/* Promote the moving parts to GPU layers only while the orbit is on screen */
+.orbit:not(.is-offscreen) .orbit__wheel,
+.orbit:not(.is-offscreen) .orbit__badge,
+.orbit:not(.is-offscreen) .orbit__text {
+  will-change: transform;
+}
+.orbit__tag {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  z-index: 1;
+  color: #fff;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  line-height: 1.25;
+}
+.orbit__tag small {
+  display: block;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: var(--fs-xs);
+}
+.orbit__info {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: min(560px, 100%);
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+  z-index: 5;
+}
+.orbit__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 1.3rem + 2vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+  white-space: nowrap;
+}
+.orbit__name span {
+  display: inline-block;
+}
+.orbit__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px 16px;
+  color: var(--on-dark-muted);
+  font-size: var(--fs-sm);
+}
+.orbit__meta b {
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+.orbit__actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.orbit__hint {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--on-dark-muted);
+  white-space: nowrap;
+}
+
+/* ---------- Mood: circular wipe between images ---------- */
+.mood__media picture {
+  clip-path: circle(0% at var(--cx, 50%) var(--cy, 50%));
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+.mood__media picture.is-on {
+  clip-path: circle(150% at var(--cx, 50%) var(--cy, 50%));
+  transition: clip-path 1.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.mood__media picture img {
+  transform: scale(1.15);
+  transition: transform 2.4s var(--ease);
+}
+.mood__media picture.is-on img {
+  transform: scale(1);
+}
+
+/* ---------- How it works: car riding the road ---------- */
+.how__car {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border-radius: 50%;
+  background: var(--champagne);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 0 6px rgba(205, 187, 163, 0.18), 0 0 30px rgba(205, 187, 163, 0.6);
+  z-index: 2;
+}
+.how__car svg {
+  width: 18px;
+  height: 18px;
+  color: var(--ink);
+}
+
+/* JS-driven marquee */
+.marquee[data-marquee] .marquee__track {
+  animation: none;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    display: none;
+  }
+}
+
+/* Infinite animations pause while their region is off-screen (see gateAnimations in motion.js).
+   Otherwise every frame the page renders would recalculate them, even when nobody can see them. */
+.is-offscreen,
+.is-offscreen *,
+.is-offscreen::before,
+.is-offscreen::after,
+.is-offscreen *::before,
+.is-offscreen *::after {
+  animation-play-state: paused !important;
+}
+

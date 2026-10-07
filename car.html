@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <!-- @include head -->
+  <title>Car details | Drivia</title>
+  <meta name="description" content="Specs, pricing and instant booking for Drivia rental cars, with a 3D showroom for our signature supercar.">
+</head>
+<body data-page="fleet">
+  <!-- @include icons -->
+  <div class="site">
+    <!-- @include header -->
+    <main id="main">
+      <section class="container car-head">
+        <nav class="breadcrumb breadcrumb--dark" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/fleet.html">Fleet</a><span>/</span><span aria-current="page" data-car-crumb>Car</span></nav>
+        <div class="car-head__row">
+          <div>
+            <div class="car-head__tags" data-car-tags></div>
+            <h1 data-car-name>Loading…</h1>
+            <p class="lead" data-car-tagline></p>
+          </div>
+          <div class="car-head__price"><span>From</span><b data-car-price>$0</b><span>/day</span></div>
+        </div>
+      </section>
+
+      <section class="car-stage" data-stage aria-label="Car viewer" data-reveal="clip">
+        <div class="car-stage__photo" data-photo></div>
+        <canvas class="car-stage__canvas" data-showroom tabindex="0" aria-label="3D model. Drag to rotate, scroll or pinch to zoom." data-cursor="Drag"></canvas>
+        <div class="car-stage__hotspots" data-hotspots></div>
+        <div class="car-stage__loader" data-stage-loader><span></span>Loading 3D showroom…</div>
+        <div class="car-stage__ui" data-stage-ui hidden>
+          <div class="stage-pill" role="group" aria-label="Paint colour">
+            <span class="stage-pill__label" data-paint-name>Obsidian Black</span>
+            <div class="swatches" data-swatches></div>
+          </div>
+          <div class="stage-pill stage-pill--actions">
+            <button type="button" class="stage-btn" data-theme-toggle aria-pressed="false" title="Toggle day / night"><svg><use href="#i-sun"/></svg><span>Day</span></button>
+            <button type="button" class="stage-btn" data-drive aria-pressed="false" title="Drive mode"><svg><use href="#i-speed"/></svg><span>Drive</span></button>
+            <button type="button" class="stage-btn" data-rotate aria-pressed="true" title="Auto-rotate"><svg><use href="#i-rotate"/></svg><span>Spin</span></button>
+          </div>
+        </div>
+        <p class="car-stage__hint" data-stage-hint hidden>Drag to rotate · Scroll to zoom · Tap the dots</p>
+      </section>
+
+      <section class="container car-body section--tight">
+        <div class="car-main">
+          <div class="spec-grid" data-specs></div>
+          <div class="car-block">
+            <h2 class="car-block__title">About this car</h2>
+            <p class="car-about" data-about></p>
+          </div>
+          <div class="car-block">
+            <h2 class="car-block__title">Included with every rental</h2>
+            <ul class="check-list included" role="list">
+              <li><svg><use href="#i-check"/></svg><span>Basic insurance & third-party liability</span></li>
+              <li><svg><use href="#i-check"/></svg><span>24/7 roadside assistance</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Professional detailing before every trip</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Free cancellation (24–72 h by tier)</span></li>
+              <li><svg><use href="#i-check"/></svg><span>Contactless pickup with digital key</span></li>
+              <li><svg><use href="#i-check"/></svg><span data-km-included>250 km per day</span></li>
+            </ul>
+          </div>
+          <div class="car-block">
+            <h2 class="car-block__title">Good to know</h2>
+            <div class="know-grid">
+              <div class="know"><span class="icon-tile"><svg><use href="#i-key"/></svg></span><div><b>Minimum age</b><p data-min-age>21 years</p></div></div>
+              <div class="know"><span class="icon-tile"><svg><use href="#i-shield"/></svg></span><div><b>Refundable deposit</b><p data-deposit>$300</p></div></div>
+              <div class="know"><span class="icon-tile"><svg><use href="#i-fuel"/></svg></span><div><b>Fuel policy</b><p data-fuel-policy>Full to full</p></div></div>
+              <div class="know"><span class="icon-tile"><svg><use href="#i-pin"/></svg></span><div><b>Delivery</b><p>All 6 cities · $45 flat</p></div></div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="book-widget" aria-labelledby="bw-title" data-reveal="right">
+          <form class="card book-widget__card" data-book-form>
+            <div class="book-widget__head">
+              <h2 id="bw-title">Book this car</h2>
+              <span class="rating" data-car-rating></span>
+            </div>
+            <div class="field">
+              <label for="bw-loc">Pick-up city</label>
+              <select class="select" id="bw-loc" name="loc" data-loc-select></select>
+            </div>
+            <div class="bw-dates">
+              <div class="field"><label for="bw-from">Pick-up</label><input class="input" type="date" id="bw-from" name="from" required></div>
+              <div class="field"><label for="bw-to">Return</label><input class="input" type="date" id="bw-to" name="to" required></div>
+            </div>
+            <fieldset class="bw-extras">
+              <legend class="sr-only">Extras</legend>
+              <label class="check"><input type="checkbox" name="extras" value="insurance"> Full coverage <span>$29/day</span></label>
+              <label class="check"><input type="checkbox" name="extras" value="delivery"> Door-to-door delivery <span>$45</span></label>
+              <label class="check"><input type="checkbox" name="extras" value="driver"> Additional driver <span>$12/day</span></label>
+            </fieldset>
+            <dl class="quote" data-quote></dl>
+            <button class="btn btn--block" type="submit">Continue booking <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></button>
+            <button class="bw-ask" type="button" data-open-chat>Questions? Ask our assistant</button>
+          </form>
+        </aside>
+      </section>
+
+      <section class="section--tight similar">
+        <div class="container">
+          <div class="section-head section-head--split">
+            <h2 data-split>You might also like</h2>
+            <div style="justify-self:end" data-reveal><a class="btn btn--outline btn--sm" href="/fleet.html">Full fleet <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a></div>
+          </div>
+          <div class="grid-cars" data-similar></div>
+        </div>
+      </section>
+    </main>
+    <!-- @include footer -->
+  </div>
+  <!-- @include overlays -->
+  <script type="module" src="/src/pages/car.js"></script>
+</body>
+</html>

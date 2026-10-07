@@ -1,0 +1,65 @@
+:root {
+  /* Colour */
+  --bg: #e7e7e4;
+  --surface: #f7f7f5;
+  --surface-2: #efefec;
+  --card: #ffffff;
+  --ink: #0e0e0f;
+  --ink-2: #2c2c2f;
+  --muted: #6f6f73;
+  --line: rgba(14, 14, 15, 0.1);
+  --line-strong: rgba(14, 14, 15, 0.18);
+  --dark: #0e0e0f;
+  --dark-2: #19191b;
+  --dark-3: #252528;
+  --on-dark: #f7f7f5;
+  --on-dark-muted: rgba(247, 247, 245, 0.68);
+  --champagne: #cdbba3;
+  --champagne-2: #b39c7e;
+  --amber: #f5a524;
+  --success: #2e9e6a;
+  --danger: #d9483b;
+  --glass: rgba(18, 18, 20, 0.8);
+  --glass-line: rgba(255, 255, 255, 0.16);
+
+  /* Type */
+  --font-display: 'Inter Tight', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --fs-hero: clamp(2.5rem, 1.45rem + 4.4vw, 5.25rem);
+  --fs-h1: clamp(2.3rem, 1.4rem + 3.6vw, 4.5rem);
+  --fs-h2: clamp(1.9rem, 1.3rem + 2.5vw, 3.5rem);
+  --fs-h3: clamp(1.3rem, 1.1rem + 0.9vw, 1.85rem);
+  --fs-lead: clamp(1rem, 0.95rem + 0.3vw, 1.2rem);
+  --fs-body: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.75rem;
+
+  /* Space & shape */
+  --gutter: clamp(16px, 4vw, 56px);
+  --section: clamp(72px, 9vw, 140px);
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 26px;
+  --r-xl: 34px;
+  --pill: 999px;
+  --header-h: 84px;
+  --frame-max: 1480px;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --t-fast: 0.25s;
+  --t: 0.5s;
+  --t-slow: 0.9s;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05), 0 4px 14px rgba(0, 0, 0, 0.05);
+  --shadow: 0 10px 40px -12px rgba(0, 0, 0, 0.18);
+  --shadow-lg: 0 30px 80px -20px rgba(0, 0, 0, 0.35);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-h: 68px;
+    --r-lg: 22px;
+  }
+}

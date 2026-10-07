@@ -1,0 +1,114 @@
+/* Shared by all inner pages */
+.page-hero--short {
+  min-height: clamp(320px, 44vh, 440px);
+}
+.page-hero h1 {
+  font-size: clamp(2.4rem, 1.5rem + 3.6vw, 4.6rem);
+  letter-spacing: -0.045em;
+}
+.page-hero__content {
+  width: 100%;
+}
+.page-hero__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.split-2 {
+  display: grid;
+  gap: clamp(32px, 5vw, 80px);
+}
+@media (min-width: 960px) {
+  .split-2 {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: clamp(20px, 2.4vw, 32px);
+}
+
+.icon-tile {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--surface-2);
+  color: var(--ink);
+  flex: none;
+}
+.icon-tile svg {
+  width: 22px;
+  height: 22px;
+}
+.on-dark .icon-tile {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--champagne);
+}
+
+.check-list {
+  display: grid;
+  gap: 12px;
+}
+.check-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.check-list svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  color: var(--success);
+  margin-top: 2px;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 110;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(10, 10, 11, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s, visibility 0s 0.35s;
+}
+.modal.is-open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.35s;
+}
+.modal__panel {
+  position: relative;
+  width: min(1000px, 100%);
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  padding: clamp(20px, 3vw, 40px);
+  transform: translateY(24px) scale(0.98);
+  transition: transform 0.5s var(--ease);
+}
+.modal.is-open .modal__panel {
+  transform: none;
+}
+.modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+}

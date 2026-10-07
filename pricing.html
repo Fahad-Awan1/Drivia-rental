@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <!-- @include head -->
+  <title>Pricing | Drivia Premium Car Rentals</title>
+  <meta name="description" content="Transparent car rental pricing: Essential from $39/day, Premium from $99/day, Signature from $159/day. 15% off weekly, 30% off monthly.">
+  <meta property="og:title" content="Drivia Pricing">
+</head>
+<body data-page="pricing">
+  <!-- @include icons -->
+  <div class="site">
+    <!-- @include header -->
+    <main id="main">
+      <section class="page-hero page-hero--road">
+        <canvas data-road-canvas aria-hidden="true"></canvas>
+        <div class="container page-hero__content">
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Pricing</span></nav>
+          <div class="page-hero__row">
+            <h1 data-split>Simple pricing. <span class="accent">No surprises.</span></h1>
+            <p class="lead" data-reveal>What you see is what you pay. Insurance, taxes and extras are always shown upfront.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="plans-title">
+        <div class="container">
+          <div class="plans-head">
+            <h2 id="plans-title" data-split>Choose your tier</h2>
+            <div class="billing" data-reveal="scale" role="radiogroup" aria-label="Rental length" data-billing>
+              <button type="button" role="radio" aria-checked="true" data-period="day">Daily</button>
+              <button type="button" role="radio" aria-checked="false" data-period="week">Weekly <em>−15%</em></button>
+              <button type="button" role="radio" aria-checked="false" data-period="month">Monthly <em>−30%</em></button>
+              <span class="billing__thumb" aria-hidden="true"></span>
+            </div>
+          </div>
+          <div class="plans" data-plans></div>
+        </div>
+      </section>
+
+      <section class="section on-dark estimator-wrap" id="estimator" aria-labelledby="est-title">
+        <div class="container estimator">
+          <div class="estimator__intro">
+            <span class="eyebrow">Trip cost estimator</span>
+            <h2 id="est-title" data-split>How much will my trip <span class="accent">cost?</span></h2>
+            <p class="lead" data-reveal>Pick a car, set the length of your trip and add extras. The estimate updates instantly, taxes included.</p>
+          </div>
+          <form class="estimator__form" data-estimator data-reveal="left">
+            <div class="field">
+              <label for="est-car">Car</label>
+              <select class="select" id="est-car" name="car" data-est-car></select>
+            </div>
+            <div class="field">
+              <label for="est-days">Trip length: <b data-days-label>3 days</b></label>
+              <input type="range" id="est-days" name="days" min="1" max="35" value="3" data-est-days>
+              <div class="range-scale"><span>1 day</span><span>1 week</span><span>2 weeks</span><span>1 month+</span></div>
+            </div>
+            <fieldset class="est-extras" data-est-extras>
+              <legend class="label">Extras</legend>
+            </fieldset>
+          </form>
+          <aside class="estimator__result" aria-live="polite" data-reveal="right">
+            <div class="est-car" data-est-preview></div>
+            <dl class="quote quote--dark" data-est-quote></dl>
+            <div class="est-total"><span>Estimated total</span><b data-est-total>$0</b><small data-est-perday></small></div>
+            <a class="btn btn--light btn--block" href="/booking.html" data-est-book>Book this trip <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="extras" aria-labelledby="extras-title">
+        <div class="container">
+          <div class="section-head section-head--split">
+            <div>
+              <span class="eyebrow" data-reveal>Add-ons</span>
+              <h2 id="extras-title" data-split>Extras, priced plainly.</h2>
+            </div>
+            <p class="lead" data-reveal>Add any of these during booking or later from your confirmation email.</p>
+          </div>
+          <div class="extras-grid" data-extras></div>
+        </div>
+      </section>
+
+      <section class="faq section" id="faq" aria-labelledby="faq-title">
+        <div class="container faq__grid">
+          <div>
+            <span class="eyebrow" data-reveal>FAQ</span>
+            <h2 id="faq-title" data-split>Pricing questions</h2>
+            <p class="lead" data-reveal style="margin-top:18px">Need a custom quote for corporate or long-term rentals? <a href="/contact.html" style="text-decoration:underline">Get in touch</a>.</p>
+          </div>
+          <div class="accordion" data-faq data-reveal></div>
+        </div>
+      </section>
+    </main>
+    <!-- @include footer -->
+  </div>
+  <!-- @include overlays -->
+  <script type="module" src="/src/pages/pricing.js"></script>
+</body>
+</html>

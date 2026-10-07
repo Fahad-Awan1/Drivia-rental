@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <!-- @include head -->
+  <title>Drivia | Premium Car Rentals, Ready When You Are</title>
+  <meta name="description" content="Rent premium cars with flexible pickup, transparent pricing and door-to-door delivery in Dubai, London, Milan, Nice, Miami and Los Angeles.">
+  <meta property="og:title" content="Drivia | Premium Car Rentals">
+  <meta property="og:description" content="Premium cars. Ready when you are.">
+</head>
+<body data-page="home">
+  <!-- @include icons -->
+  <div class="loader" aria-hidden="true" data-loader>
+    <div class="loader__shapes" data-loader-shapes></div>
+    <div class="loader__count"><span data-loader-count>0</span><small>%</small></div>
+    <div class="loader__sweep"></div>
+  </div>
+
+  <div class="site">
+    <!-- @include header -->
+    <main id="main">
+
+      <!-- ============ HERO ============ -->
+      <section class="hero" data-hero data-reveal-manual aria-label="Introduction">
+        <svg class="hero__arc" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H1000V6C770 6 690 34 500 34S230 6 0 6Z"/></svg>
+        <div class="hero__media" data-hero-media>
+          <x-pic name="hero-car" alt="Red Audi R8 with its headlights on, parked on an open road at dusk with mountains behind" sizes="(max-width: 768px) 100vw, 75vw" eager />
+          <span class="hero__shine" aria-hidden="true"></span>
+        </div>
+
+        <div class="hero__inner container">
+          <div class="hero__content">
+            <h1 class="hero__title" data-split>Premium cars.<br><span class="accent">Ready when you are.</span></h1>
+            <p class="hero__lead" data-reveal style="--d:.35s">Rent a car with flexible pickup, transparent pricing, and a fleet built for every journey.</p>
+            <div class="hero__cta" data-reveal style="--d:.45s">
+              <a class="btn btn--light" href="/fleet.html" data-magnetic>Browse Cars <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a>
+              <a class="hero__link" href="/car.html?id=ferrari-458"><svg><use href="#i-rotate"/></svg>Explore our 3D showroom</a>
+            </div>
+            <div class="hero__trust" data-reveal style="--d:.55s">
+              <div class="avatars">
+                <x-pic name="avatar-1" alt="" sizes="42px" />
+                <x-pic name="avatar-4" alt="" sizes="42px" />
+                <x-pic name="avatar-2" alt="" sizes="42px" />
+                <x-pic name="avatar-3" alt="" sizes="42px" />
+              </div>
+              <div>
+                <div class="hero__rating"><b>4.8/5</b> <span class="stars" aria-label="4.8 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg class="off"><use href="#i-star"/></svg></span></div>
+                <span class="hero__trust-text">Trusted by 2,500+ customers</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero__bottom">
+            <div class="socials" data-reveal style="--d:.8s">
+              <a href="#" aria-label="Instagram"><svg><use href="#i-instagram"/></svg></a>
+              <a href="#" aria-label="Facebook"><svg><use href="#i-facebook"/></svg></a>
+              <a href="#" aria-label="LinkedIn"><svg><use href="#i-linkedin"/></svg></a>
+            </div>
+            <a class="avail-card" href="/car.html?id=bmw-m5" data-avail data-reveal style="--d:.9s">
+              <div class="avail-card__img" data-avail-img></div>
+              <div class="avail-card__text">
+                <small data-avail-index>/01</small>
+                <b>Available today</b>
+                <span data-avail-name>BMW M5 Competition</span>
+              </div>
+              <span class="avail-card__go"><svg><use href="#i-arrow"/></svg></span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ INTRO SLIDER (mockup) ============ -->
+      <section class="intro section" aria-labelledby="intro-title">
+        <div class="container intro__grid">
+          <div class="intro__side">
+            <div class="intro__steps" data-steps>
+              <button type="button" class="is-active" aria-label="Slide 1">01</button>
+              <span class="intro__line"><i data-steps-bar></i></span>
+              <button type="button" aria-label="Slide 2">02</button>
+              <button type="button" aria-label="Slide 3">03</button>
+              <button type="button" aria-label="Slide 4">04</button>
+            </div>
+            <p class="intro__blurb" data-reveal>A simple and hassle-free car rental experience designed for modern travelers.</p>
+            <div class="intro__about">
+              <span class="eyebrow" data-reveal>About</span>
+              <h2 id="intro-title" data-split>Drive Your Way, From Day One</h2>
+              <p class="lead" data-reveal>Whether it’s a weekend escape, a business trip, or a long road ahead, we make car rental easy, flexible, and reliable.</p>
+              <div data-reveal><a class="btn" href="/fleet.html" data-magnetic>Browse Cars <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a></div>
+            </div>
+          </div>
+
+          <div class="intro__slider">
+            <div class="intro__track" data-track tabindex="0" aria-label="Drivia services">
+              <article class="feature-card" data-cursor="Drag" data-reveal="tilt">
+                <x-pic name="audi-rs6" alt="Black Audi RS 6 at dusk" sizes="(max-width: 768px) 80vw, 340px" />
+                <div class="feature-card__top"><h3>Luxury Fleet</h3><p>Premium vehicles for every journey.</p></div>
+                <div class="feature-card__bottom"><p>Explore our collection of luxury sedans, SUVs, and more.</p><a class="btn btn--ghost btn--sm" href="/fleet.html?category=Luxury">Learn More <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a></div>
+              </article>
+              <article class="feature-card" data-cursor="Drag" data-reveal="tilt">
+                <x-pic name="scene-road" alt="Sports car on an open road at sunset" sizes="(max-width: 768px) 80vw, 340px" />
+                <div class="feature-card__top"><h3>Flexible Rental</h3><p>On your terms.<br>Where you need it.</p></div>
+                <div class="feature-card__bottom"><p>Choose from daily, weekly, or monthly rentals with flexible pickup and drop-off options.</p><a class="btn btn--ghost btn--sm" href="/pricing.html">Learn More <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a></div>
+              </article>
+              <article class="feature-card" data-cursor="Drag" data-reveal="tilt">
+                <x-pic name="tesla-roadster" alt="White Tesla Roadster in a showroom" sizes="(max-width: 768px) 80vw, 340px" />
+                <div class="feature-card__top"><h3>Go Electric</h3><p>Silent power,<br>zero emissions.</p></div>
+                <div class="feature-card__bottom"><p>Tesla Model 3 to Roadster, delivered charged and ready to go.</p><a class="btn btn--ghost btn--sm" href="/fleet.html?category=Electric">Learn More <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a></div>
+              </article>
+              <article class="feature-card" data-cursor="Drag" data-reveal="tilt">
+                <x-pic name="scene-interior" alt="Driver's hands on a steering wheel at dusk" sizes="(max-width: 768px) 80vw, 340px" />
+                <div class="feature-card__top"><h3>Door-to-Door</h3><p>We bring the keys<br>to you.</p></div>
+                <div class="feature-card__bottom"><p>Delivery to your hotel, home or airport gate in all six cities.</p><a class="btn btn--ghost btn--sm" href="/locations.html">Learn More <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a></div>
+              </article>
+              <article class="feature-card" data-cursor="Drag" data-reveal="tilt">
+                <x-pic name="bmw-m5" alt="BMW M5 driving through a city" sizes="(max-width: 768px) 80vw, 340px" />
+                <div class="feature-card__top"><h3>Chauffeur Service</h3><p>Sit back.<br>We’ll drive.</p></div>
+                <div class="feature-card__bottom"><p>Professional drivers for business, weddings and airport transfers.</p><a class="btn btn--ghost btn--sm" href="/pricing.html#extras">Learn More <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a></div>
+              </article>
+              <article class="feature-card" data-cursor="Drag" data-reveal="tilt">
+                <x-pic name="scene-palms" alt="Red sports car on a palm-lined avenue" sizes="(max-width: 768px) 80vw, 340px" />
+                <div class="feature-card__top"><h3>Monthly Plans</h3><p>Save 30% on<br>long stays.</p></div>
+                <div class="feature-card__bottom"><p>Car subscriptions with insurance, servicing and swaps included.</p><a class="btn btn--ghost btn--sm" href="/pricing.html">Learn More <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a></div>
+              </article>
+              <article class="feature-card" data-cursor="Drag" data-reveal="tilt">
+                <x-pic name="scene-desert" alt="Vintage van on a desert road" sizes="(max-width: 768px) 80vw, 340px" />
+                <div class="feature-card__top"><h3>Road-Trip Ready</h3><p>One-way rentals<br>between cities.</p></div>
+                <div class="feature-card__bottom"><p>Pick up in one city and drop off in another. Cross-border friendly.</p><a class="btn btn--ghost btn--sm" href="/booking.html">Learn More <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a></div>
+              </article>
+              <article class="feature-card" data-cursor="Drag" data-reveal="tilt">
+                <x-pic name="scene-city" alt="City skyline by the sea" sizes="(max-width: 768px) 80vw, 340px" />
+                <div class="feature-card__top"><h3>24/7 Concierge</h3><p>Real humans,<br>any hour.</p></div>
+                <div class="feature-card__bottom"><p>Roadside help, extensions and changes, one call or chat away.</p><a class="btn btn--ghost btn--sm" href="/contact.html">Learn More <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a></div>
+              </article>
+            </div>
+            <div class="intro__nav">
+              <button class="icon-btn" type="button" data-prev aria-label="Previous slide"><svg><use href="#i-arrow-left"/></svg></button>
+              <button class="icon-btn icon-btn--dark" type="button" data-next aria-label="Next slide"><svg><use href="#i-arrow"/></svg></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ QUICK SEARCH ============ -->
+      <section class="container quick" aria-label="Quick booking">
+        <form class="quick__form" action="/booking.html" data-reveal="scale">
+          <div class="quick__title"><b>Find your ride</b><span>Instant confirmation</span></div>
+          <div class="field">
+            <label for="q-loc">Pick-up city</label>
+            <select class="select" id="q-loc" name="loc" data-loc-select></select>
+          </div>
+          <div class="field">
+            <label for="q-from">Pick-up date</label>
+            <input class="input" type="date" id="q-from" name="from" required>
+          </div>
+          <div class="field">
+            <label for="q-to">Return date</label>
+            <input class="input" type="date" id="q-to" name="to" required>
+          </div>
+          <div class="field">
+            <label for="q-cat">Car type</label>
+            <select class="select" id="q-cat" name="category" data-cat-select><option value="">Any type</option></select>
+          </div>
+          <button class="btn btn--light quick__submit" type="submit">Search <span class="btn__icon"><svg><use href="#i-search"/></svg></span></button>
+        </form>
+      </section>
+
+      <!-- ============ FLEET SHOWCASE (orbit carousel) ============ -->
+      <section class="showcase on-dark" data-showcase aria-labelledby="showcase-title">
+        <div class="showcase__inner">
+          <div class="container showcase__head">
+            <div>
+              <span class="eyebrow">The fleet</span>
+              <h2 id="showcase-title" data-split>Hand-picked. Detailed.<br><span class="accent">Delivered.</span></h2>
+            </div>
+            <div class="showcase__meta">
+              <p class="lead" data-reveal>From efficient city cars to V10 supercars, every Drivia car is under three years old and detailed before each trip.</p>
+              <div class="showcase__controls" data-reveal>
+                <div class="showcase__progress"><span data-showcase-count>01</span><i><b data-showcase-bar></b></i><span data-showcase-total>07</span></div>
+                <div class="showcase__nav">
+                  <button class="icon-btn icon-btn--glass" type="button" data-show-prev aria-label="Previous car"><svg><use href="#i-arrow-left"/></svg></button>
+                  <button class="icon-btn icon-btn--light" type="button" data-show-next aria-label="Next car"><svg><use href="#i-arrow"/></svg></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="orbit" data-orbit tabindex="0" role="region" aria-roledescription="carousel" aria-label="Featured cars. Use left and right arrow keys to browse." data-reveal="fade">
+            <div class="orbit__badge" aria-hidden="true">
+              <div class="orbit__plate"></div>
+              <svg class="orbit__text" viewBox="0 0 200 200"><defs><path id="orbit-path" d="M100 100 m-86 0 a86 86 0 1 1 172 0 a86 86 0 1 1 -172 0"/></defs><text><textPath href="#orbit-path">Hand-picked · Detailed · Delivered · Drive your way · From day one · Hand-picked · Detailed · Delivered ·</textPath></text></svg>
+            </div>
+            <span class="orbit__hint" aria-hidden="true">Drag to spin · Tap a car</span>
+            <div class="orbit__stage" data-orbit-stage></div>
+            <div class="orbit__info" aria-live="polite">
+              <div class="orbit__name" data-orbit-name></div>
+              <div class="orbit__meta" data-orbit-meta></div>
+              <div class="orbit__actions">
+                <a class="btn btn--light btn--sm" href="/fleet.html" data-orbit-view>View car <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a>
+                <a class="btn btn--ghost btn--sm" href="/booking.html" data-orbit-book>Book <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ TRIP MOOD ============ -->
+      <section class="mood section" aria-labelledby="mood-title">
+        <div class="container">
+          <div class="section-head section-head--split">
+            <div>
+              <span class="eyebrow" data-reveal>Trip mood</span>
+              <h2 id="mood-title" data-split>Where is the road taking you?</h2>
+            </div>
+            <p class="lead" data-reveal>Tell us the vibe and we’ll suggest the perfect match. Pick a mood to see our recommendations change instantly.</p>
+          </div>
+          <div class="chips mood__chips" role="tablist" aria-label="Trip mood" data-mood-tabs data-reveal>
+            <button class="chip" role="tab" aria-selected="true" aria-pressed="true" data-mood="coast">🌊 Coastal cruise</button>
+            <button class="chip" role="tab" aria-selected="false" aria-pressed="false" data-mood="mountain">⛰️ Mountain escape</button>
+            <button class="chip" role="tab" aria-selected="false" aria-pressed="false" data-mood="city">🏙️ City nights</button>
+            <button class="chip" role="tab" aria-selected="false" aria-pressed="false" data-mood="business">💼 Business trip</button>
+          </div>
+          <div class="mood__stage" data-reveal="clip" data-mood-stage>
+            <div class="mood__media" data-mood-media></div>
+            <div class="mood__overlay">
+              <div class="mood__copy">
+                <h3 data-mood-title>Coastal cruise</h3>
+                <p data-mood-desc>Top down, sea breeze, golden hour.</p>
+              </div>
+              <div class="mood__cars" data-mood-cars></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ HOW IT WORKS ============ -->
+      <section class="how section on-dark" data-how aria-labelledby="how-title">
+        <div class="container how__grid">
+          <div class="how__intro">
+            <span class="eyebrow">How it works</span>
+            <h2 id="how-title" data-split>From click to <span class="accent">ignition</span> in four steps.</h2>
+            <p class="lead" data-reveal>No queues, no paperwork marathons. Book online and we’ll handle the rest.</p>
+            <div data-reveal><a class="btn btn--light" href="/booking.html">Start booking <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a></div>
+          </div>
+          <div class="how__road">
+            <svg class="how__svg" viewBox="0 0 400 1000" preserveAspectRatio="none" aria-hidden="true">
+              <path class="how__path-bg" d="M200 0 C 300 120, 300 240, 200 340 S 100 560, 200 680 S 300 880, 200 1000"/>
+              <path class="how__path" data-how-path d="M200 0 C 300 120, 300 240, 200 340 S 100 560, 200 680 S 300 880, 200 1000"/>
+            </svg>
+            <span class="how__car" data-how-car aria-hidden="true"><svg><use href="#i-car"/></svg></span>
+            <ol class="how__steps" role="list">
+              <li class="how__step" data-reveal="right"><span class="how__num">01</span><div><h3>Choose your car</h3><p>Filter by type, seats or budget, or ask our assistant for a recommendation.</p></div></li>
+              <li class="how__step" data-reveal="right"><span class="how__num">02</span><div><h3>Pick dates & extras</h3><p>Transparent pricing with insurance, delivery and add-ons shown upfront.</p></div></li>
+              <li class="how__step" data-reveal="right"><span class="how__num">03</span><div><h3>We deliver the keys</h3><p>At our branch, your hotel or the airport gate, on time, every time.</p></div></li>
+              <li class="how__step" data-reveal="right"><span class="how__num">04</span><div><h3>Drive & enjoy</h3><p>24/7 concierge on call. Return anywhere in the city when you’re done.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ PROOF: stats bento ============ -->
+      <section class="proof section" aria-labelledby="proof-title">
+        <div class="container">
+          <div class="section-head section-head--split">
+            <div>
+              <span class="eyebrow" data-reveal>Drivia in numbers</span>
+              <h2 id="proof-title" data-split>Trusted on every <span class="accent-dark">road.</span></h2>
+            </div>
+            <p class="lead" data-reveal>Eight years, six cities and thousands of keys handed over. Here’s what that looks like.</p>
+          </div>
+
+          <div class="bento">
+            <article class="tile tile--drivers" data-reveal="tilt">
+              <div class="tile__media" aria-hidden="true"><x-pic name="scene-road" alt="" sizes="(max-width: 1024px) 100vw, 560px" /></div>
+              <span class="tile__label"><i class="live-dot"></i>Happy drivers</span>
+              <div class="tile__bottom">
+                <b class="tile__num tile__num--xl"><span data-count="2500">0</span>+</b>
+                <div class="tile__people">
+                  <div class="avatars">
+                    <x-pic name="avatar-1" alt="" sizes="42px" />
+                    <x-pic name="avatar-4" alt="" sizes="42px" />
+                    <x-pic name="avatar-2" alt="" sizes="42px" />
+                    <x-pic name="avatar-3" alt="" sizes="42px" />
+                    <x-pic name="avatar-5" alt="" sizes="42px" />
+                    <span class="avatars__more">+2.4k</span>
+                  </div>
+                  <p>Drivers who booked again within a year: <b>68%</b></p>
+                </div>
+              </div>
+            </article>
+
+            <article class="tile tile--rating" data-reveal="tilt" style="--d:.08s">
+              <div class="tile__top">
+                <span class="tile__label">Average rating</span>
+                <span class="tile__badge">Verified</span>
+              </div>
+              <div class="rating-big">
+                <b class="tile__num"><span data-count="4.8" data-decimals="1">0</span><small>/5</small></b>
+                <span class="stars" aria-label="4.8 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg class="half"><use href="#i-star"/></svg></span>
+              </div>
+              <ul class="bars" role="list" aria-label="Rating breakdown">
+                <li><span>5★</span><i style="--w:.86"></i><em>86%</em></li>
+                <li><span>4★</span><i style="--w:.10"></i><em>10%</em></li>
+                <li><span>3★</span><i style="--w:.03"></i><em>3%</em></li>
+                <li><span>≤2★</span><i style="--w:.01"></i><em>1%</em></li>
+              </ul>
+              <small class="tile__foot">From 1,240 reviews after completed trips</small>
+            </article>
+
+            <a class="tile tile--fleet" href="/fleet.html" data-reveal="tilt" style="--d:.16s" data-cursor="View">
+              <div class="tile__top">
+                <span class="tile__label">Hand-picked cars</span>
+                <span class="tile__go"><svg><use href="#i-arrow-up-right"/></svg></span>
+              </div>
+              <b class="tile__num"><span data-count="18">0</span></b>
+              <div class="car-stack" aria-hidden="true">
+                <x-pic name="ferrari-458" alt="" sizes="96px" />
+                <x-pic name="bmw-m5" alt="" sizes="96px" />
+                <x-pic name="tesla-model-3" alt="" sizes="96px" />
+                <x-pic name="ford-expedition" alt="" sizes="96px" />
+              </div>
+              <small class="tile__foot">All under 3 years old · 6 categories</small>
+            </a>
+
+            <article class="tile tile--cities" data-reveal="tilt" style="--d:.12s">
+              <div class="tile__top">
+                <span class="tile__label">Cities worldwide</span>
+                <svg class="tile__icon"><use href="#i-pin"/></svg>
+              </div>
+              <b class="tile__num"><span data-count="6">0</span></b>
+              <ul class="city-list" role="list">
+                <li>Dubai</li><li>London</li><li>Milan</li><li>Nice</li><li>Miami</li><li>Los Angeles</li>
+              </ul>
+            </article>
+
+            <article class="tile tile--cta" data-reveal="tilt" style="--d:.2s">
+              <a class="circle-badge" href="/booking.html" aria-label="Book your car">
+                <svg class="ring" viewBox="0 0 100 100" aria-hidden="true"><defs><path id="circ" d="M50 50m-38 0a38 38 0 1 1 76 0a38 38 0 1 1-76 0"/></defs><text><textPath href="#circ">Drive your way • From day one • </textPath></text></svg>
+                <span class="circle-badge__core"><svg><use href="#i-arrow-up-right"/></svg></span>
+              </a>
+              <div>
+                <b class="tile__cta-title">Book in under 2 minutes</b>
+                <p>Instant confirmation. Pay at pickup.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ REVIEWS ============ -->
+      <section class="reviews" aria-labelledby="reviews-title">
+        <div class="container reviews__head">
+          <div>
+            <span class="eyebrow" data-reveal>Reviews</span>
+            <h2 id="reviews-title" data-split>Drivers love <span class="accent-dark">the drive.</span></h2>
+          </div>
+          <div class="score" data-reveal="right">
+            <div class="score__main">
+              <b>4.8</b>
+              <div><span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg class="half"><use href="#i-star"/></svg></span><small>1,240 verified reviews</small></div>
+            </div>
+            <ul class="score__platforms" role="list">
+              <li><b>Google</b><span>4.9</span></li>
+              <li><b>Trustpilot</b><span>4.8</span></li>
+              <li><b>Tripadvisor</b><span>4.8</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="reviews__rows">
+          <div class="marquee" style="--dur:75s;--gap:18px"><div class="marquee__track" data-reviews></div></div>
+        </div>
+      </section>
+
+      <!-- ============ FAQ ============ -->
+      <section class="faq section" aria-labelledby="faq-title">
+        <div class="container faq__grid">
+          <div>
+            <span class="eyebrow" data-reveal>FAQ</span>
+            <h2 id="faq-title" data-split>Questions? Answered.</h2>
+            <p class="lead" data-reveal style="margin-top:18px">Can’t find what you’re looking for? Our assistant answers instantly.</p>
+            <div data-reveal style="margin-top:28px"><button class="btn btn--outline" type="button" data-open-chat>Ask the assistant <span class="btn__icon"><svg><use href="#i-chat"/></svg></span></button></div>
+          </div>
+          <div class="accordion" data-faq data-reveal></div>
+        </div>
+      </section>
+
+      <!-- ============ CTA ============ -->
+      <section class="cta-band" data-road aria-labelledby="cta-title">
+        <canvas data-road-canvas aria-hidden="true"></canvas>
+        <div class="container cta-band__inner">
+          <h2 id="cta-title" data-split="scatter">Your next road trip starts <span class="accent">tonight.</span></h2>
+          <div class="cta-band__actions" data-reveal>
+            <a class="btn btn--light" href="/booking.html" data-magnetic>Book a Car <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a>
+            <a class="btn btn--ghost" href="/fleet.html">View fleet <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- @include footer -->
+  </div>
+  <!-- @include overlays -->
+  <script type="module" src="/src/pages/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <!-- @include head -->
+  <title>Contact Drivia | 24/7 Concierge</title>
+  <meta name="description" content="Talk to Drivia’s 24/7 concierge by phone, email or chat, or send us a message about bookings, corporate rentals and partnerships.">
+  <meta property="og:title" content="Contact Drivia">
+</head>
+<body data-page="contact">
+  <!-- @include icons -->
+  <div class="site">
+    <!-- @include header -->
+    <main id="main">
+      <section class="page-hero page-hero--short">
+        <div class="page-hero__media"><x-pic name="scene-palms" alt="" sizes="100vw" eager /></div>
+        <div class="container page-hero__content">
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Contact</span></nav>
+          <div class="page-hero__row">
+            <h1 data-split>Let’s talk <span class="accent">cars.</span></h1>
+            <p class="lead" data-reveal>Real people, any hour. Most messages get a reply within 15 minutes.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section--tight">
+        <div class="container channels">
+          <a class="card channel" href="tel:+18005550199" data-reveal="scale"><span class="icon-tile"><svg><use href="#i-phone"/></svg></span><div><b>Call us</b><span>+1 800 555 0199</span><em>Answered in under a minute</em></div><svg class="channel__go"><use href="#i-arrow-up-right"/></svg></a>
+          <a class="card channel" href="mailto:hello@drivia.example" data-reveal="scale" style="--d:.06s"><span class="icon-tile"><svg><use href="#i-mail"/></svg></span><div><b>Email</b><span>hello@drivia.example</span><em>Reply within 15 minutes</em></div><svg class="channel__go"><use href="#i-arrow-up-right"/></svg></a>
+          <button class="card channel" type="button" data-open-chat data-reveal="scale" style="--d:.12s"><span class="icon-tile"><svg><use href="#i-chat"/></svg></span><div><b>Live chat</b><span>Instant answers, 24/7</span><em>Online now</em></div><svg class="channel__go"><use href="#i-arrow-up-right"/></svg></button>
+          <a class="card channel" href="/locations.html" data-reveal="scale" style="--d:.18s"><span class="icon-tile"><svg><use href="#i-pin"/></svg></span><div><b>Visit a branch</b><span>6 cities worldwide</span><em>Open late, two open 24/7</em></div><svg class="channel__go"><use href="#i-arrow-up-right"/></svg></a>
+        </div>
+      </section>
+
+      <section class="section--tight contact-sec">
+        <div class="container contact">
+          <div class="contact__form-wrap card" data-reveal>
+            <form class="contact__form" novalidate data-contact>
+              <div class="cf-progress" aria-hidden="true"><i data-cf-bar></i></div>
+              <header class="cf-head">
+                <div>
+                  <h2>Send us a message</h2>
+                  <p class="cf-head__sub"><i class="live-dot" aria-hidden="true"></i><span>Our concierge typically replies in <b>~15 minutes</b></span></p>
+                </div>
+                <div class="cf-team" aria-hidden="true">
+                  <div class="avatars">
+                    <x-pic name="avatar-2" alt="" sizes="40px" />
+                    <x-pic name="avatar-4" alt="" sizes="40px" />
+                    <x-pic name="avatar-5" alt="" sizes="40px" />
+                  </div>
+                  <span data-cf-count>0 of 5 done</span>
+                </div>
+              </header>
+
+              <div class="contact__row">
+                <div class="field ff">
+                  <span class="ff__icon" aria-hidden="true"><svg><use href="#i-seat"/></svg></span>
+                  <input class="ff__input" id="c-name" name="name" autocomplete="name" required minlength="2" placeholder=" ">
+                  <label class="ff__label" for="c-name">Full name</label>
+                  <span class="ff__ok" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+                <div class="field ff">
+                  <span class="ff__icon" aria-hidden="true"><svg><use href="#i-mail"/></svg></span>
+                  <input class="ff__input" id="c-email" name="email" type="email" autocomplete="email" required pattern="[^@\s]+@[^@\s]+\.[^@\s]{2,}" placeholder=" ">
+                  <label class="ff__label" for="c-email">Email address</label>
+                  <span class="ff__ok" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+              </div>
+              <div class="contact__row">
+                <div class="field ff">
+                  <span class="ff__icon" aria-hidden="true"><svg><use href="#i-phone"/></svg></span>
+                  <input class="ff__input" id="c-phone" name="phone" type="tel" autocomplete="tel" pattern="[\d\s\+\-\(\)]{7,}" placeholder=" ">
+                  <label class="ff__label" for="c-phone">Phone <small>(optional)</small></label>
+                  <span class="ff__ok" aria-hidden="true"><svg><use href="#i-check"/></svg></span>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+                <div class="field ff ff--select">
+                  <label class="ff__label" id="c-topic-label" for="c-topic">What’s it about?</label>
+                  <select class="dd__native" id="c-topic" name="topic" required data-dropdown>
+                    <option value="">Choose a topic</option>
+                    <option data-icon="calendar" data-desc="Plan a new rental">New booking</option>
+                    <option data-icon="key" data-desc="Change, extend or ask about a trip">Existing booking</option>
+                    <option data-icon="compare" data-desc="Monthly billing for teams">Corporate & long-term</option>
+                    <option data-icon="star" data-desc="Weddings, shoots and special days">Events & weddings</option>
+                    <option data-icon="arrow-up-right" data-desc="Hotels, brands and press">Partnerships</option>
+                    <option data-icon="chat" data-desc="Anything else on your mind">Something else</option>
+                  </select>
+                  <span class="field__error" aria-live="polite"></span>
+                </div>
+              </div>
+              <div class="field ff ff--area">
+                <span class="ff__icon" aria-hidden="true"><svg><use href="#i-chat"/></svg></span>
+                <textarea class="ff__input" id="c-msg" name="message" required minlength="10" maxlength="1000" rows="4" placeholder=" " aria-describedby="c-msg-count"></textarea>
+                <label class="ff__label" for="c-msg">Your message <small>e.g. dates, city, car</small></label>
+                <span class="ff__count" id="c-msg-count" data-cf-chars>0 / 1000</span>
+                <span class="field__error" aria-live="polite"></span>
+              </div>
+
+              <div class="cf-foot">
+                <label class="cbox">
+                  <input type="checkbox" name="consent" required>
+                  <span class="cbox__box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+                  <span>I agree to be contacted about my enquiry.</span>
+                </label>
+                <button class="btn cf-submit" type="submit" data-cf-submit><span class="cf-submit__label">Send message</span> <span class="btn__icon"><svg><use href="#i-send"/></svg></span></button>
+              </div>
+              <span class="field__error" data-consent-error aria-live="polite"></span>
+            </form>
+            <div class="contact__success" data-success hidden tabindex="-1">
+              <span class="success-icon"><svg><use href="#i-check"/></svg></span>
+              <h2>Message received!</h2>
+              <p>Thanks, <b data-success-name></b>. A concierge will reply to <b data-success-email></b> shortly. Your reference is <b data-success-ref></b>.</p>
+              <button class="btn btn--outline btn--sm" type="button" data-again>Send another <span class="btn__icon"><svg><use href="#i-rotate"/></svg></span></button>
+            </div>
+          </div>
+          <aside class="contact__side">
+            <div class="card on-dark contact__hours" data-reveal="right">
+              <h3>Branch hours</h3>
+              <ul role="list" data-hours></ul>
+            </div>
+            <div class="card contact__corp" data-reveal="right">
+              <h3>Corporate accounts</h3>
+              <p>Monthly invoicing, dedicated account manager and priority delivery for teams of any size.</p>
+              <a class="btn btn--sm" href="mailto:business@drivia.example">business@drivia.example <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="faq section" aria-labelledby="faq-title">
+        <div class="container faq__grid">
+          <div>
+            <span class="eyebrow" data-reveal>FAQ</span>
+            <h2 id="faq-title" data-split>Quick answers</h2>
+          </div>
+          <div class="accordion" data-faq data-reveal></div>
+        </div>
+      </section>
+    </main>
+    <!-- @include footer -->
+  </div>
+  <!-- @include overlays -->
+  <script type="module" src="/src/pages/contact.js"></script>
+</body>
+</html>

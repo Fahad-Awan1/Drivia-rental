@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <!-- @include head -->
+  <title>Wrong turn | Drivia</title>
+  <meta name="description" content="This page took a wrong turn.">
+  <meta name="robots" content="noindex">
+</head>
+<body data-page="404">
+  <!-- @include icons -->
+  <div class="site">
+    <!-- @include header -->
+    <main id="main">
+      <section class="lost">
+        <canvas data-road-canvas aria-hidden="true"></canvas>
+        <div class="container lost__inner">
+          <span class="lost__code" aria-hidden="true">404</span>
+          <h1 data-split>Looks like you took a <span class="accent">wrong turn.</span></h1>
+          <p class="lead" data-reveal>The page you’re looking for has driven off. Let’s get you back on the road.</p>
+          <div class="lost__actions" data-reveal>
+            <a class="btn btn--light" href="/">Back home <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a>
+            <a class="btn btn--ghost" href="/fleet.html">Browse the fleet <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a>
+            <button class="btn btn--ghost" type="button" data-open-chat>Ask for directions <span class="btn__icon"><svg><use href="#i-chat"/></svg></span></button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- @include footer -->
+  </div>
+  <!-- @include overlays -->
+  <script type="module" src="/src/pages/notfound.js"></script>
+</body>
+</html>

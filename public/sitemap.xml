@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://drivia.example/</loc></url>
+  <url><loc>https://drivia.example/fleet.html</loc></url>
+  <url><loc>https://drivia.example/car.html</loc></url>
+  <url><loc>https://drivia.example/pricing.html</loc></url>
+  <url><loc>https://drivia.example/locations.html</loc></url>
+  <url><loc>https://drivia.example/about.html</loc></url>
+  <url><loc>https://drivia.example/contact.html</loc></url>
+  <url><loc>https://drivia.example/booking.html</loc></url>
+</urlset>

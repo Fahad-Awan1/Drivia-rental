@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build output (Vercel builds from source)
+dist/
+dist-*/
+
+# Vite cache
+.vite/
+
+# Logs & OS / editor files
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local env
+.env
+.env.*

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <!-- @include head -->
+  <title>Our Fleet | Drivia Premium Car Rentals</title>
+  <meta name="description" content="Browse 18 premium rental cars: economy, sedans, SUVs, electric, luxury and sports cars. Filter, compare and book in minutes.">
+  <meta property="og:title" content="The Drivia Fleet">
+</head>
+<body data-page="fleet">
+  <!-- @include icons -->
+  <div class="site">
+    <!-- @include header -->
+    <main id="main">
+      <section class="page-hero page-hero--short">
+        <div class="page-hero__media"><x-pic name="scene-detail" alt="" sizes="100vw" eager /></div>
+        <div class="container page-hero__content">
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Fleet</span></nav>
+          <div class="page-hero__row">
+            <h1 data-split>Find your perfect <span class="accent">drive.</span></h1>
+            <p class="lead" data-reveal>Every car is under three years old, fully insured and detailed before each rental.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section--tight">
+        <div class="container">
+          <div class="toolbar" data-toolbar>
+            <div class="chips" role="group" aria-label="Category" data-cats></div>
+            <div class="toolbar__row">
+              <label class="search">
+                <svg aria-hidden="true"><use href="#i-search"/></svg>
+                <span class="sr-only">Search cars</span>
+                <input type="search" placeholder="Search brand or model" data-q>
+              </label>
+              <button class="btn btn--outline btn--sm toolbar__more" type="button" aria-expanded="false" aria-controls="more-filters" data-more>Filters <span class="btn__icon"><svg><use href="#i-plus"/></svg></span></button>
+              <label class="sort">
+                <span class="sr-only">Sort by</span>
+                <select class="select" data-sort>
+                  <option value="featured">Featured</option>
+                  <option value="price-asc">Price: low to high</option>
+                  <option value="price-desc">Price: high to low</option>
+                  <option value="accel">Quickest 0–100</option>
+                  <option value="hp">Most powerful</option>
+                  <option value="rating">Top rated</option>
+                </select>
+              </label>
+            </div>
+            <div class="toolbar__panel" id="more-filters" data-panel hidden>
+              <div class="field">
+                <label for="f-max">Max price / day: <b data-max-label>Any</b></label>
+                <input type="range" id="f-max" min="40" max="1200" step="10" value="1200" data-max>
+              </div>
+              <div class="field">
+                <label for="f-seats">Seats</label>
+                <select class="select" id="f-seats" data-seats><option value="0">Any</option><option value="4">4+</option><option value="5">5+</option><option value="7">7+</option></select>
+              </div>
+              <div class="field">
+                <label for="f-trans">Transmission</label>
+                <select class="select" id="f-trans" data-trans><option value="">Any</option><option>Automatic</option><option>Manual</option></select>
+              </div>
+              <div class="field">
+                <label for="f-fuel">Fuel</label>
+                <select class="select" id="f-fuel" data-fuel><option value="">Any</option><option>Petrol</option><option>Hybrid</option><option>Electric</option></select>
+              </div>
+              <button class="btn btn--plain btn--outline btn--sm" type="button" data-reset>Reset all</button>
+            </div>
+          </div>
+          <p class="results-count" aria-live="polite" data-count></p>
+          <div class="grid-cars" data-grid></div>
+          <div class="empty" data-empty hidden>
+            <h3>No cars match those filters.</h3>
+            <p>Try widening your budget or ask our assistant to find an alternative.</p>
+            <div class="empty__actions">
+              <button class="btn btn--sm" type="button" data-reset>Reset filters <span class="btn__icon"><svg><use href="#i-rotate"/></svg></span></button>
+              <button class="btn btn--outline btn--sm" type="button" data-open-chat>Ask the assistant <span class="btn__icon"><svg><use href="#i-chat"/></svg></span></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band" aria-labelledby="cta-title">
+        <canvas data-road-canvas aria-hidden="true"></canvas>
+        <div class="container cta-band__inner">
+          <h2 id="cta-title" data-split="scatter">Can’t decide? <span class="accent">Ask us.</span></h2>
+          <div class="cta-band__actions" data-reveal>
+            <button class="btn btn--light" type="button" data-open-chat="Help me choose a car">Chat with us <span class="btn__icon"><svg><use href="#i-chat"/></svg></span></button>
+            <a class="btn btn--ghost" href="/contact.html">Contact <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- @include footer -->
+  </div>
+
+  <div class="compare-bar" data-compare-bar aria-live="polite">
+    <div class="compare-bar__items" data-compare-items></div>
+    <div class="compare-bar__actions">
+      <button class="compare-bar__clear" type="button" data-compare-clear>Clear</button>
+      <button class="btn btn--light btn--sm" type="button" data-compare-open>Compare <span class="btn__icon"><svg><use href="#i-compare"/></svg></span></button>
+    </div>
+  </div>
+  <div class="modal" data-compare-modal role="dialog" aria-modal="true" aria-labelledby="cmp-title">
+    <div class="modal__panel" data-lenis-prevent>
+      <button class="icon-btn modal__close" type="button" aria-label="Close" data-compare-close><svg><use href="#i-close"/></svg></button>
+      <h2 id="cmp-title" class="cmp-title">Compare cars</h2>
+      <div class="cmp" data-compare-table></div>
+    </div>
+  </div>
+  <!-- @include overlays -->
+  <script type="module" src="/src/pages/fleet.js"></script>
+</body>
+</html>

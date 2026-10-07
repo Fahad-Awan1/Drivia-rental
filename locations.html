@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <!-- @include head -->
+  <title>Locations | Drivia in Dubai, London, Milan, Nice, Miami & LA</title>
+  <meta name="description" content="Pick up your Drivia car in Dubai, London, Milan, Nice, Miami or Los Angeles, or have it delivered to your hotel or airport.">
+  <meta property="og:title" content="Drivia Locations">
+</head>
+<body data-page="locations">
+  <!-- @include icons -->
+  <div class="site">
+    <!-- @include header -->
+    <main id="main">
+      <section class="page-hero page-hero--short">
+        <div class="page-hero__media"><x-pic name="scene-city" alt="" sizes="100vw" eager /></div>
+        <div class="container page-hero__content">
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Locations</span></nav>
+          <div class="page-hero__row">
+            <h1 data-split>Six cities. <span class="accent">One standard.</span></h1>
+            <p class="lead" data-reveal>Pick up at a branch, or let us deliver to your hotel, home or airport gate.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section locs-sec" aria-labelledby="locs-title">
+        <div class="container">
+          <div class="locs-head">
+            <div>
+              <span class="eyebrow" data-reveal>Our branches</span>
+              <h2 id="locs-title" data-split>Pick a city. <span class="accent-dark">We’ll handle the rest.</span></h2>
+            </div>
+            <div class="locs-head__side" data-reveal="right">
+              <dl class="locs-stats">
+                <div><dt>Cities</dt><dd data-count-to="6">6</dd></div>
+                <div><dt>Continents</dt><dd>4</dd></div>
+                <div><dt>Open right now</dt><dd><i class="live-dot" aria-hidden="true"></i><span data-open-count>6</span></dd></div>
+              </dl>
+              <button class="btn btn--outline btn--sm" type="button" data-near>Nearest to me <span class="btn__icon"><svg><use href="#i-pin"/></svg></span></button>
+            </div>
+          </div>
+
+          <div class="locs">
+            <ul class="locs__items" role="list" data-locs></ul>
+            <div class="locs__map-wrap" data-reveal="clip">
+              <div class="locs__map" data-map role="region" aria-label="Map of Drivia branches"><div class="locs__map-ph"><span></span>Loading map…</div></div>
+              <article class="map-card" data-map-card aria-live="polite"></article>
+              <div class="map-hint" aria-hidden="true">Tap a pin or a city</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section deliver" aria-labelledby="deliver-title">
+        <div class="container">
+          <div class="deliver__panel on-dark">
+            <div class="deliver__head">
+              <div>
+                <span class="eyebrow">Delivery</span>
+                <h2 id="deliver-title" data-split>We come <span class="accent">to you.</span></h2>
+              </div>
+              <p class="lead" data-reveal>Every branch runs its own team of delivery drivers. Hand-over takes five minutes, with a digital key and contactless paperwork.</p>
+            </div>
+            <ol class="deliver__steps" role="list">
+              <li class="dstep" data-reveal="tilt"><span class="dstep__n">01</span><span class="dstep__icon"><svg><use href="#i-pin"/></svg></span><h3>Hotel &amp; home</h3><p>Flat $45 within city limits, free on Signature rentals.</p><span class="dstep__meta">~ 30 min notice</span></li>
+              <li class="dstep" data-reveal="tilt" style="--d:.08s"><span class="dstep__n">02</span><span class="dstep__icon"><svg><use href="#i-clock"/></svg></span><h3>Airport meet &amp; greet</h3><p>We track your flight and wait at arrivals, even when you’re delayed.</p><span class="dstep__meta">25–40 min from landing</span></li>
+              <li class="dstep" data-reveal="tilt" style="--d:.16s"><span class="dstep__n">03</span><span class="dstep__icon"><svg><use href="#i-compare"/></svg></span><h3>One-way trips</h3><p>Start in Nice and finish in Milan. Any two branches, one booking.</p><span class="dstep__meta">+$150 relocation</span></li>
+              <li class="dstep" data-reveal="tilt" style="--d:.24s"><span class="dstep__n">04</span><span class="dstep__icon"><svg><use href="#i-key"/></svg></span><h3>Digital key</h3><p>Unlock with your phone. No counters, no queues.</p><span class="dstep__meta">5 min hand-over</span></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band" aria-labelledby="cta-title">
+        <canvas data-road-canvas aria-hidden="true"></canvas>
+        <div class="container cta-band__inner">
+          <h2 id="cta-title" data-split="scatter">Landing soon? <span class="accent">We’ll be there.</span></h2>
+          <div class="cta-band__actions" data-reveal>
+            <a class="btn btn--light" href="/booking.html">Book a Car <span class="btn__icon"><svg><use href="#i-arrow"/></svg></span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- @include footer -->
+  </div>
+  <!-- @include overlays -->
+  <script type="module" src="/src/pages/locations.js"></script>
+</body>
+</html>

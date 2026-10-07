@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://drivia.example/sitemap.xml
