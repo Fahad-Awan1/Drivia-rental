@@ -134,6 +134,8 @@ export function createChat() {
     greet();
   });
   document.addEventListener('keydown', (e) => e.key === 'Escape' && api.isOpen && api.close());
+  // A chat link may have navigated away while the panel was open (scroll paused on phones).
+  window.addEventListener('drivia:restored', () => api.isOpen && api.close());
 
   const api = {
     isOpen: false,

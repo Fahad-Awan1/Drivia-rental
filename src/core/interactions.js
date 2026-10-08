@@ -101,6 +101,8 @@ export function initMenu(lenis) {
   btn.addEventListener('click', () => set(!root.classList.contains('menu-open')));
   document.addEventListener('keydown', (e) => e.key === 'Escape' && root.classList.contains('menu-open') && (set(false), btn.focus()));
   window.matchMedia('(min-width: 961px)').addEventListener('change', (e) => e.matches && set(false));
+  // Coming back to this page from the back/forward cache: the menu may still be open from the tap that left it.
+  window.addEventListener('drivia:restored', () => root.classList.contains('menu-open') && set(false));
 }
 
 export function initCursor() {

@@ -44,17 +44,26 @@ export function initTransitions() {
     markReady();
   }
 
+  /* ---- Back / forward restore ----
+     Browsers keep recently left pages in the back/forward cache and restore them frozen exactly as
+     they were when the user clicked away: mid page transition, with smooth scrolling stopped and
+     this script still "leaving". Without a reset the restored page can't scroll and ignores links.
+     Return everything to a clean, usable state and tell open UI (menu, chat, modals) to close. */
+  let leaving = false;
   window.addEventListener('pageshow', (e) => {
     if (!e.persisted) return;
+    leaving = false;
+    root.classList.remove('is-entering', 'is-leaving');
     pt?.classList.remove('is-active');
     gsap.set([panelA, panelB], { yPercent: 101 });
     gsap.set(line, { scaleX: 0 });
+    window.__lenis?.start();
+    window.dispatchEvent(new Event('drivia:restored'));
   });
 
   if (RM || !pt) return;
 
   /* ---- Leave ---- */
-  let leaving = false;
   document.addEventListener('click', (e) => {
     const a = e.target.closest('a[href]');
     if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;

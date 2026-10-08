@@ -16,7 +16,9 @@ export function dragScroll(track, { onRelease } = {}) {
     }
     if (drag.moved) track.scrollLeft = drag.left - dx;
   });
-  window.addEventListener('pointerup', () => {
+  // pointercancel / blur: the button was released outside the window or the system interrupted the
+  // gesture. Without these the row would stay stuck in "dragging" mode following the pointer.
+  const end = () => {
     if (!drag) return;
     const moved = drag.moved;
     drag = null;
@@ -30,5 +32,8 @@ export function dragScroll(track, { onRelease } = {}) {
       setTimeout(() => track.removeEventListener('click', swallow, { capture: true }), 0);
       onRelease?.();
     }
-  });
+  };
+  window.addEventListener('pointerup', end);
+  window.addEventListener('pointercancel', end);
+  window.addEventListener('blur', end);
 }

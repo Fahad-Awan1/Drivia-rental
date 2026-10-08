@@ -219,5 +219,7 @@ $('[data-compare-open]').addEventListener('click', openCompare);
 $('[data-compare-close]').addEventListener('click', closeCompare);
 modal.addEventListener('click', (e) => e.target === modal && closeCompare());
 document.addEventListener('keydown', (e) => e.key === 'Escape' && modal.classList.contains('is-open') && closeCompare());
+// A "Book" link inside the compare modal may have navigated away while it was open (scroll paused).
+window.addEventListener('drivia:restored', () => modal.classList.contains('is-open') && closeCompare());
 renderCompare();
 
