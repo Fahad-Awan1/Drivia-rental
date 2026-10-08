@@ -61,7 +61,7 @@ if (!RM) {
 }
 
 /* "Available today" card cycles through featured cars with a vertical text roll. */
-const featured = cars.filter((c) => c.featured && !c.model3d);
+const featured = cars.filter((c) => c.featured);
 const avail = $('[data-avail]');
 const availImg = $('[data-avail-img]');
 let ai = 0;

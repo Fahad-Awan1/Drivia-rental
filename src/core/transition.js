@@ -3,12 +3,13 @@
 // Navigation stays real multi-page (plain location changes).
 import { gsap, markReady, RM } from './motion.js';
 import { $ } from './utils.js';
+import { getCar } from '../data/cars.js';
 
 const NAMES = {
-  '/': 'Home', '/index.html': 'Home', '/fleet.html': 'Fleet', '/car.html': 'Showroom', '/pricing.html': 'Pricing',
+  '/': 'Home', '/index.html': 'Home', '/fleet.html': 'Fleet', '/car.html': 'Our fleet', '/pricing.html': 'Pricing',
   '/locations.html': 'Locations', '/about.html': 'About', '/contact.html': 'Contact', '/booking.html': 'Booking', '/404.html': 'Lost',
 };
-const nameFor = (url) => NAMES[url.pathname] || 'Drivia';
+const nameFor = (url) => (url.pathname === '/car.html' && getCar(url.searchParams.get('id'))?.name) || NAMES[url.pathname] || 'Drivia';
 const KEY = 'drv-t';
 
 function setName(text) {

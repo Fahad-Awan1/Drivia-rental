@@ -1,13 +1,12 @@
 import { boot } from '../main.js';
 import '../styles/pages/inner.css';
 import '../styles/pages/car.css';
-import { $, $$, icon, params, webglAvailable, whenNear } from '../core/utils.js';
+import { $, $$, icon, params } from '../core/utils.js';
 import { cars, getCar, money } from '../data/cars.js';
 import { quote, daysBetween } from '../data/pricing.js';
 import { carCard, pic } from '../components/render.js';
 import { initQuickSearch } from '../components/quick-search.js';
 import { initTilt } from '../core/interactions.js';
-import { PAINTS } from '../data/paints.js';
 
 const car = getCar(params().get('id')) || getCar('ferrari-458');
 if (params().get('id') !== car.id) history.replaceState(null, '', `?id=${car.id}`);
@@ -19,7 +18,7 @@ $('[data-car-name]').textContent = car.name;
 $('[data-car-crumb]').textContent = car.name;
 $('[data-car-tagline]').textContent = car.tagline;
 $('[data-car-price]').textContent = money(car.price);
-$('[data-car-tags]').innerHTML = `<span class="tag">${car.category}</span><span class="tag"><i class="dot"></i>Available today</span>${car.model3d ? `<span class="tag tag--accent">${icon('rotate')} 3D showroom</span>` : ''}`;
+$('[data-car-tags]').innerHTML = `<span class="tag">${car.category}</span><span class="tag"><i class="dot"></i>Available today</span>`;
 $('[data-car-rating]').innerHTML = `${icon('star')}${car.rating.toFixed(1)} <span style="color:var(--muted);font-weight:400">(${car.trips} trips)</span>`;
 
 const SPECS = [
@@ -52,54 +51,8 @@ document.querySelectorAll('[data-similar] .car-card').forEach((el, i) => ((el.da
 boot();
 initTilt($('[data-similar]'));
 
-/* ---------- Stage: 3D showroom or photo ---------- */
-const stage = $('[data-stage]');
+/* ---------- Stage: the car's photo ---------- */
 $('[data-photo]').innerHTML = pic(car.img, car.name, '100vw', { eager: true });
-
-if (car.model3d && webglAvailable()) {
-  stage.classList.add('is-3d', 'is-loading');
-  whenNear(stage, async () => {
-    try {
-      const { createShowroom } = await import('../three/showroom.js');
-      const room = await createShowroom($('[data-showroom]'), $('[data-hotspots]'));
-      stage.classList.remove('is-loading');
-      $('[data-stage-ui]').hidden = false;
-      $('[data-stage-hint]').hidden = false;
-      bindStageUI(room);
-    } catch (err) {
-      console.warn('Showroom unavailable', err);
-      stage.classList.remove('is-3d', 'is-loading');
-    }
-  }, '200px');
-}
-
-function bindStageUI(room) {
-  const sw = $('[data-swatches]');
-  sw.innerHTML = PAINTS.map((p, i) => `<button type="button" class="swatch" style="--c:${p.hex}" aria-pressed="${i === 0}" aria-label="${p.name}" title="${p.name}" data-hex="${p.hex}"></button>`).join('');
-  sw.addEventListener('click', (e) => {
-    const b = e.target.closest('.swatch');
-    if (!b) return;
-    $$('.swatch', sw).forEach((s) => s.setAttribute('aria-pressed', String(s === b)));
-    $('[data-paint-name]').textContent = b.title;
-    room.paint(b.dataset.hex);
-  });
-  const toggle = (sel, fn) => {
-    const b = $(sel);
-    b.addEventListener('click', () => {
-      const on = b.getAttribute('aria-pressed') !== 'true';
-      b.setAttribute('aria-pressed', String(on));
-      fn(on, b);
-    });
-  };
-  toggle('[data-theme-toggle]', (on, b) => {
-    room.setTheme(on ? 'day' : 'night');
-    stage.classList.toggle('is-day', on);
-    b.querySelector('use').setAttribute('href', on ? '#i-moon' : '#i-sun');
-    b.querySelector('span').textContent = on ? 'Night' : 'Day';
-  });
-  toggle('[data-drive]', (on) => room.setDrive(on));
-  toggle('[data-rotate]', (on) => room.setAutoRotate(on));
-}
 
 /* ---------- Booking widget ---------- */
 const form = $('[data-book-form]');

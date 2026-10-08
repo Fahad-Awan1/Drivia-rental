@@ -2,7 +2,7 @@
 export const CATEGORIES = ['Economy', 'Sedan', 'SUV', 'Electric', 'Luxury', 'Sports'];
 
 export const cars = [
-  { id: 'ferrari-458', name: 'Ferrari 458 Italia', brand: 'Ferrari', category: 'Sports', price: 890, seats: 2, doors: 2, transmission: 'Automatic', fuel: 'Petrol', hp: 562, accel: 3.4, top: 325, tagline: 'Our signature supercar — explore it in 3D.', model3d: true, featured: true, rating: 4.9, trips: 214 },
+  { id: 'ferrari-458', name: 'Ferrari 458 Italia', brand: 'Ferrari', category: 'Sports', price: 890, seats: 2, doors: 2, transmission: 'Automatic', fuel: 'Petrol', hp: 562, accel: 3.4, top: 325, tagline: 'A naturally aspirated V8 that sings to 9,000 rpm.', featured: true, rating: 4.9, trips: 214 },
   { id: 'bmw-m5', name: 'BMW M5 Competition', brand: 'BMW', category: 'Luxury', price: 289, seats: 5, doors: 4, transmission: 'Automatic', fuel: 'Petrol', hp: 617, accel: 3.3, top: 305, tagline: 'Executive comfort with a supercar heartbeat.', featured: true, rating: 4.9, trips: 512 },
   { id: 'porsche-panamera', name: 'Porsche Panamera 4S', brand: 'Porsche', category: 'Luxury', price: 329, seats: 4, doors: 4, transmission: 'Automatic', fuel: 'Hybrid', hp: 552, accel: 3.7, top: 298, tagline: 'Grand touring, perfected.', featured: true, rating: 4.8, trips: 388 },
   { id: 'mercedes-amg-gt', name: 'Mercedes-AMG GT', brand: 'Mercedes-Benz', category: 'Sports', price: 459, seats: 2, doors: 2, transmission: 'Automatic', fuel: 'Petrol', hp: 523, accel: 3.8, top: 310, tagline: 'Long bonnet, short tail, endless drama.', featured: true, rating: 4.9, trips: 176 },

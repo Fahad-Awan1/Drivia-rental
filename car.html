@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <!-- @include head -->
   <title>Car details | Drivia</title>
-  <meta name="description" content="Specs, pricing and instant booking for Drivia rental cars, with a 3D showroom for our signature supercar.">
+  <meta name="description" content="Specs, pricing and instant booking for every Drivia rental car.">
 </head>
 <body data-page="fleet">
   <!-- @include icons -->
@@ -23,23 +23,8 @@
         </div>
       </section>
 
-      <section class="car-stage" data-stage aria-label="Car viewer" data-reveal="clip">
+      <section class="car-stage" data-stage aria-label="Car photo" data-reveal="clip">
         <div class="car-stage__photo" data-photo></div>
-        <canvas class="car-stage__canvas" data-showroom tabindex="0" aria-label="3D model. Drag to rotate, scroll or pinch to zoom." data-cursor="Drag"></canvas>
-        <div class="car-stage__hotspots" data-hotspots></div>
-        <div class="car-stage__loader" data-stage-loader><span></span>Loading 3D showroom…</div>
-        <div class="car-stage__ui" data-stage-ui hidden>
-          <div class="stage-pill" role="group" aria-label="Paint colour">
-            <span class="stage-pill__label" data-paint-name>Obsidian Black</span>
-            <div class="swatches" data-swatches></div>
-          </div>
-          <div class="stage-pill stage-pill--actions">
-            <button type="button" class="stage-btn" data-theme-toggle aria-pressed="false" title="Toggle day / night"><svg><use href="#i-sun"/></svg><span>Day</span></button>
-            <button type="button" class="stage-btn" data-drive aria-pressed="false" title="Drive mode"><svg><use href="#i-speed"/></svg><span>Drive</span></button>
-            <button type="button" class="stage-btn" data-rotate aria-pressed="true" title="Auto-rotate"><svg><use href="#i-rotate"/></svg><span>Spin</span></button>
-          </div>
-        </div>
-        <p class="car-stage__hint" data-stage-hint hidden>Drag to rotate · Scroll to zoom · Tap the dots</p>
       </section>
 
       <section class="container car-body section--tight">

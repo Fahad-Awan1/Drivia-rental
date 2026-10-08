@@ -19,7 +19,7 @@ export const carCard = (c, { compare = false } = {}) => `
     <div class="car-card__media">
       <div class="car-card__badges">
         <span class="tag tag--dark">${c.category}</span>
-        ${c.model3d ? `<span class="tag tag--accent">${icon('rotate')}3D</span>` : '<span class="tag"><i class="dot"></i>Available</span>'}
+        <span class="tag"><i class="dot"></i>Available</span>
       </div>
       ${pic(c.img, c.name, '(max-width: 640px) 100vw, (max-width: 1100px) 50vw, 400px')}
     </div>
